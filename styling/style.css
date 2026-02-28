@@ -1,0 +1,166 @@
+/*****************************************
+ * MOBILE *
+ *****************************************/
+
+/*----------------------------------------
+Color Styles
+----------------------------------------*/
+:root {
+  /* Blue */
+  --color-blue-100: #0023D1;
+  --color-blue-75: #657EFF;
+  --color-blue-50: #9EB5FF;
+  --color-blue-25: #DDE5FF;
+
+	/* Pink */
+	--color-pink-100: #6E0056;
+	--color-pink-75: #B4008C;
+	--color-pink-50: #F154CE;
+	--color-pink-25: #FFDBF7;
+
+	/* Red */
+	--color-red-100: #BA0000;
+	--color-red-75: #E81313;
+	--color-red-50: #FF4646;
+	--color-red-25: #FFA7A7;
+
+  /* Neutral colors */
+  --color-background: #ffffff;
+  --color-text: #171717;
+}
+
+/*----------------------------------------
+Spacings
+----------------------------------------*/
+:root {
+  --space-0: 0;
+  --space-1: 0.25rem;  /* 4px */
+  --space-2: 0.5rem;   /* 8px */
+  --space-3: 0.75rem;  /* 12px */
+  --space-4: 1rem;     /* 16px */
+	--space-5: 1.25rem;  /* 20px */
+  --space-5: 1.5rem;   /* 24px */
+  --space-6: 2rem;     /* 32px */
+  --space-7: 3rem;     /* 48px */
+  --space-8: 3.5rem;  /* 56px */
+  --space-9: 4.5rem;  /* 72px */
+  --space-10: 5rem;   /* 80px */
+  --space-11: 7.5rem; /* 120px */
+  --space-12: 10rem;  /* 160px */
+}
+
+/*----------------------------------------
+Text Styles
+----------------------------------------*/
+body {
+	font-family: "bricolage-grotesque", sans-serif;
+	font-weight: 300;
+	font-style: normal;
+}
+.menu-item {
+	font-family: "bricolage-grotesque", sans-serif;
+	font-weight: 500;
+	font-style: normal;
+}
+h1, h2, h3 {
+	font-family: "please-vf", sans-serif;
+	font-variation-settings: "wght" 800;
+	font-style: normal;
+}
+
+/*----------------------------------------
+Element Styles
+----------------------------------------*/
+.button-default {
+	background-color: var(--color-red-50);
+	border: none;
+}
+
+/*----------------------------------------
+Navigation
+----------------------------------------*/
+.logo {
+	width: 169px;
+	height: auto;
+}
+
+/* Header + hamburger menu styles */
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--space-4);
+	padding: var(--space-4);
+	position: relative;
+}
+
+.menu-toggle {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	background: transparent;
+	border: none;
+	color: var(--color-text);
+	font: inherit;
+	cursor: pointer;
+	padding: 0.25rem 0.5rem;
+}
+.menu-toggle:focus {
+	outline: 2px solid var(--color-blue-75);
+	outline-offset: 2px;
+}
+
+.menu-label {
+	font-weight: 600;
+}
+
+.hamburger {
+	display: inline-flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 22px;
+	height: 16px;
+}
+.hamburger .bar {
+	display: block;
+	height: 2px;
+	background: var(--color-text);
+	border-radius: 2px;
+}
+
+.main-menu {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	background: var(--color-background);
+	box-shadow: 0 6px 18px rgba(23,23,23,0.12);
+	z-index: 40;
+}
+.main-menu[hidden] {
+	display: none;
+}
+.main-menu ul {
+	list-style: none;
+	margin: 0;
+	padding: 0.5rem 0;
+}
+.main-menu li + li {
+	border-top: 1px solid rgba(0,0,0,0.06);
+}
+.main-menu a {
+	display: block;
+	padding: 0.75rem 1rem;
+	color: var(--color-text);
+	text-decoration: none;
+}
+.main-menu a:focus,
+.main-menu a:hover {
+	background: var(--color-blue-25);
+}
+
+/* Small tweak: keep header items in one row on narrow screens */
+@media (max-width: 600px) {
+	header { padding: 0.5rem; }
+	.logo { width: 140px; }
+}

@@ -1,11 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-</head>
-<body>
-	
-</body>
+		<head>
+				<meta charset="UTF-8" />
+				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+				<title>Disney’s Hollywood Studios</title>
+				<link rel="stylesheet" href="/styling/style.css" />
+				<link rel="stylesheet" href="https://use.typekit.net/wqn8nkm.css">
+				<link rel="stylesheet" href="https://use.typekit.net/wqn8nkm.css">
+		</head>
+		<body>
+				<main>
+					<div class="content">
+						<header>
+							<a href="#"><img class="logo" src="/assets/img/disney-hollywood-studios-logo.png" alt="Logo Disney’s Hollywood Studios" title="Logo Disney’s Hollywood Studios"></a>
+							<!-- Hamburger menu button -->
+							<button id="menuToggle" class="menu-toggle" aria-controls="mainMenu" aria-expanded="false">
+								<span class="menu-label">Menü</span>
+								<span class="hamburger" aria-hidden="true">
+									<span class="bar"></span>
+									<span class="bar"></span>
+									<span class="bar"></span>
+								</span>
+							</button>
+							<nav id="mainMenu" class="main-menu" hidden>
+								<ul>
+									<li><a href="#">Themenbereiche</a></li>
+									<li><a href="#">Alle Attraktionen</a></li>
+									<li><a href="#">Impressionen</a></li>
+									<li><a href="#">Widmung</a></li>
+									<li><a href="#">Geschichte und Entwicklung</a></li>
+								</ul>
+							</nav>
+						</header>
+
+						<section class="hero-section">
+							<div class="hero-bild">
+								<img src="/assets/img/hollywood-boulevard.jpg" alt="Hollywood Boulevard" title="Hollywood Boulevard">
+							</div>
+							<div class="hero-text">
+								<h1 class="hero-title">Das ist der Titel</h1>
+								<div class="hero-text-container">
+									<p>Hier folgt der Text</p>
+									<button class="button-default">Jetzt mehr erfahren</button>
+								</div>
+							</div>
+						</section>
+						
+					</div>
+				</main>
+
+				<script>
+					(function () {
+						const btn = document.getElementById('menuToggle');
+						const menu = document.getElementById('mainMenu');
+						if (!btn || !menu) return;
+
+						btn.addEventListener('click', function () {
+							const expanded = btn.getAttribute('aria-expanded') === 'true';
+							btn.setAttribute('aria-expanded', String(!expanded));
+							menu.hidden = expanded; // show when it was closed
+						});
+
+						// close when clicking outside
+						document.addEventListener('click', function (e) {
+							if (!menu.hidden && !btn.contains(e.target) && !menu.contains(e.target)) {
+								btn.setAttribute('aria-expanded', 'false');
+								menu.hidden = true;
+							}
+						});
+					})();
+				</script>
+
+				</body>
 </html>
