@@ -34,16 +34,93 @@
 						</header>
 
 						<section class="hero-section">
-							<div class="hero-bild">
-								<img src="/assets/img/hollywood-boulevard.jpg" alt="Hollywood Boulevard" title="Hollywood Boulevard">
+							<div class="hero-video">
+								<video class="hero-bg-video" autoplay muted loop playsinline poster="/assets/img/hollywood-boulevard.jpg" aria-label="Hollywood Studios Intro Video">
+									<source src="/assets/video/HollywoodStudios_Header_1280x720-v2.webm" type="video/webm">
+									<source src="/assets/video/HollywoodStudios_Header_1280x720-v2.mp4" type="video/mp4">
+									<!-- Fallback text for very old browsers -->
+									Your browser does not support embedded videos. Visit the site with a modern browser to view the video.
+								</video>
 							</div>
 							<div class="hero-text">
-								<h1 class="hero-title">Das ist der Titel</h1>
+								<h2 class="title-hero title-h2">Disney’s Hollywood Studios</h2>
+								<h1 class="title-blue">Themenpark im Walt Disney World Resort</h1>
 								<div class="hero-text-container">
-									<p>Hier folgt der Text</p>
+									<p>Disney's Hollywood Studios ist ein Themenpark im Walt Disney World Resort in Bay Lake, Florida, in der Nähe von Orlando. Er wird von der Walt Disney Company durch deren Experiences-Sparte betrieben. </p>
 									<button class="button-default">Jetzt mehr erfahren</button>
 								</div>
 							</div>
+						</section>
+
+						<section class="themenbereiche-section">
+							<div class="themenbereiche-content">
+								<h2 class="title-h2">Themenbereiche</h2>
+								<h3 class="title-h3 title-pink">Neue Welten entdecken</h3>
+								<div class="card card-star-wars">
+									<img class="card-img card-img-star-wars" src="/assets/img/disney-hollywood-studios-star-wars-smugglers-run-night.jpg" alt="Star Wars: Galaxy’s Edge" title="Star Wars: Galaxy’s Edge">
+									<div class="card-content">
+										<h4 class="card-title">Star Wars: Galaxy's Edge</h4>
+										<p>Star Wars: Galaxy's Edge spielt im Star-Wars-Universum, im Dorf Black Spire Outpost auf dem abgelegenen Grenzplaneten Batuu. Zu den Attraktionen gehören Star Wars: Rise of the Resistance und Millennium Falcon: Smugglers Run.</p>
+									</div>
+								</div>
+								<div class="card card-toy-story-land">
+									<img class="card-img card-img-toy-story-land" src="/assets/img/disney-hollywood-studios-toy-story-land.jpg" alt="Toy Story Land" title="Toy Story Land">
+									<div class="card-content">
+										<h4 class="card-title">Toy Story Land</h4>
+										<p>Zu den Attraktionen gehören Toy Story Mania!, eine interaktive 4D-Attraktion, die von klassischen Jahrmarktspielen inspiriert ist; Slinky Dog Dash, eine Outdoor-Achterbahn; und Alien Swirling Saucers, eine Attraktion im Stil einer Whip-Fahrt.</p>
+									</div>
+								</div>
+								<div class="card card-pixar-plaza">
+									<img class="card-img card-img-pixar-plaza" src="/assets/img/disney-hollywood-studios-pixar-place.jpg" alt="Pixar Plaza" title="Pixar Plaza">
+									<div class="card-content">
+										<h4 class="card-title">Pixar Plaza</h4>
+										<p>Der Bereich bietet den Gästen die Möglichkeit, verschiedene Pixar-Charaktere zu treffen, darunter Edna Mode, Mr. und Mrs. Incredible, Frozone sowie Sulley aus "Die Monster AG".</p>
+									</div>
+								</div>
+								<div class="card card-hollywood-boulevard">
+									<img class="card-img card-img-hollywood-boulevard" src="/assets/img/disney-hollywood-studios-hollywood-boulevard.jpg" alt="Hollywood Boulevard" title="Hollywood Boulevard">
+									<div class="card-content">
+										<h4 class="card-title">Hollywood Boulevard</h4>
+										<p>Der Hollywood Boulevard, inspiriert von der gleichnamigen Straße, dient als Haupteingang des Parks und funktioniert ähnlich wie die Main Street, U.S.A. im Magic Kingdom. Er ist gesäumt von thematischen Fassaden und Geschäften, die Disney-Waren und Parkdienstleistungen anbieten.</p>
+									</div>
+								</div>
+							</div>
+						</section>
+
+						<section class="attraktionen-section">
+							<div class="attraktionen-content">
+								<h2 class="title-h2">Alle Attraktionen</h2>
+								<h3 class="title-h3 title-blue">Magische Erlebnisse</h3>
+								<ul>
+									<li>Hollywood Boulevard</li>
+									<li>Echo Lake</li>
+									<li>Commissary Lane</li>
+									<li>Grand Avenue</li>
+									<li>Star Wars: Galaxy's Edge</li>
+									<li>Toy Story Land</li>
+									<li>Pixar Plaza</li>
+									<li>Animation Courtyard</li>
+									<li>Sunset Boulevard</li>
+									<li>Live Entertainment</li>
+								</ul>
+							</div>
+						</section>
+
+						<section>
+							<div class="impressionen-content">
+								<h2 class="title-h2">Impressionen</h2>
+								<h3 class="title-h3 title-blue">Lass dich von der Magie verzaubern</h3>
+								<div class="gallery carousel" aria-label="Impressionen Galerie">
+									<div class="carousel-track">
+										<div class="carousel-slide"><img src="/assets/img/disney-hollywood-studios-castle.jpg" alt="Disney’s Hollywood Studios Schloss" title="Disney’s Hollywood Studios Schloss"></div>
+										<div class="carousel-slide"><img src="/assets/img/disney-hollywood-studios-echo-lake.jpg" alt="Disney’s Hollywood Studios Echo Lake" title="Disney’s Hollywood Studios Echo Lake"></div>
+										<div class="carousel-slide"><img src="/assets/img/disney-hollywood-studios-animation-courtyard.jpg" alt="Disney’s Hollywood Studios Animation Courtyard" title="Disney’s Hollywood Studios Animation Courtyard"></div>
+										<div class="carousel-slide"><img src="/assets/img/disney-hollywood-studios-hollywood-tower-hotel.jpg" alt="Disney’s Hollywood Studios Hollywood Tower Hotel" title="Disney’s Hollywood Studios Hollywood Tower Hotel"></div>
+									</div>
+									<button class="carousel-arrow prev" aria-label="Vorheriges Bild">‹</button>
+									<button class="carousel-arrow next" aria-label="Nächstes Bild">›</button>
+									<div class="carousel-dots" role="tablist" aria-label="Galerie Navigation"></div>
+								</div>
 						</section>
 						
 					</div>
@@ -68,6 +145,56 @@
 								menu.hidden = true;
 							}
 						});
+					})();
+				</script>
+
+				<script>
+					// Simple carousel for .gallery.carousel
+					(function () {
+						const slider = document.querySelector('.gallery.carousel');
+						if (!slider) return;
+						const track = slider.querySelector('.carousel-track');
+						const slides = Array.from(track.querySelectorAll('.carousel-slide'));
+						const prevBtn = slider.querySelector('.carousel-arrow.prev');
+						const nextBtn = slider.querySelector('.carousel-arrow.next');
+						const dotsContainer = slider.querySelector('.carousel-dots');
+						let current = 0;
+
+						// build dots
+						slides.forEach((s, i) => {
+							const btn = document.createElement('button');
+							btn.setAttribute('aria-label', `Slide ${i + 1}`);
+							btn.dataset.index = i;
+							if (i === 0) btn.classList.add('active');
+							dotsContainer.appendChild(btn);
+							btn.addEventListener('click', () => {
+								goTo(i);
+							});
+						});
+
+						const dots = Array.from(dotsContainer.children);
+
+						function update() {
+							track.style.transform = `translateX(-${current * 100}%)`;
+							dots.forEach((d, i) => d.classList.toggle('active', i === current));
+						}
+
+						function goTo(i) {
+							current = (i + slides.length) % slides.length;
+							update();
+						}
+
+						prevBtn.addEventListener('click', () => goTo(current - 1));
+						nextBtn.addEventListener('click', () => goTo(current + 1));
+
+						// keyboard support
+						slider.addEventListener('keydown', (e) => {
+							if (e.key === 'ArrowLeft') goTo(current - 1);
+							if (e.key === 'ArrowRight') goTo(current + 1);
+						});
+
+						// make focusable
+						slider.tabIndex = 0;
 					})();
 				</script>
 
