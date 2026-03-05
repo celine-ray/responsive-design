@@ -9,31 +9,33 @@
 				<link rel="stylesheet" href="https://use.typekit.net/wqn8nkm.css">
 		</head>
 		<body>
+			<header>
+					<a class="logo-link col-span-4" href="#"><img class="logo" src="/assets/img/disney-hollywood-studios-logo.png" alt="Logo Disney’s Hollywood Studios" title="Logo Disney’s Hollywood Studios"></a>
+					<div class="header-controls" >
+						<!-- Hamburger menu button -->
+						<button id="menuToggle" class="menu-toggle" aria-controls="mainMenu" aria-expanded="false">
+							<span class="menu-label">Menü</span>
+							<span class="hamburger" aria-hidden="true">
+								<span class="bar"></span>
+								<span class="bar"></span>
+								<span class="bar"></span>
+							</span>
+						</button>
+						<nav id="mainMenu" class="main-menu" hidden>
+							<ul>
+								<li><a href="#themenbereiche-section">Themenbereiche</a></li>
+								<li><a href="#attraktionen-section">Alle Attraktionen</a></li>
+								<li><a href="#impressionen-section">Impressionen</a></li>
+								<li><a href="#widmung-section">Widmung</a></li>
+								<li><a href="#history-section">Geschichte und Entwicklung</a></li>
+							</ul>
+						</nav>
+					</div>
+				</header>
+
 				<main>
 					<div class="content">
-						<header>
-							<a href="#"><img class="logo" src="/assets/img/disney-hollywood-studios-logo.png" alt="Logo Disney’s Hollywood Studios" title="Logo Disney’s Hollywood Studios"></a>
-							<!-- Hamburger menu button -->
-							<button id="menuToggle" class="menu-toggle" aria-controls="mainMenu" aria-expanded="false">
-								<span class="menu-label">Menü</span>
-								<span class="hamburger" aria-hidden="true">
-									<span class="bar"></span>
-									<span class="bar"></span>
-									<span class="bar"></span>
-								</span>
-							</button>
-							<nav id="mainMenu" class="main-menu" hidden>
-								<ul>
-									<li><a href="#">Themenbereiche</a></li>
-									<li><a href="#">Alle Attraktionen</a></li>
-									<li><a href="#">Impressionen</a></li>
-									<li><a href="#">Widmung</a></li>
-									<li><a href="#">Geschichte und Entwicklung</a></li>
-								</ul>
-							</nav>
-						</header>
-
-						<section class="hero-section">
+						<section id="hero-section">
 							<div class="hero-video">
 								<video class="hero-bg-video" autoplay muted loop playsinline poster="/assets/img/hollywood-boulevard.jpg" aria-label="Hollywood Studios Intro Video">
 									<source src="/assets/video/HollywoodStudios_Header_1280x720-v2.webm" type="video/webm">
@@ -52,7 +54,7 @@
 							</div>
 						</section>
 
-						<section class="themenbereiche-section">
+						<section id="themenbereiche-section">
 							<div class="themenbereiche-content">
 								<h2 class="title-h2">Themenbereiche</h2>
 								<h3 class="title-h3 title-pink">Neue Welten entdecken</h3>
@@ -87,7 +89,7 @@
 							</div>
 						</section>
 
-						<section class="attraktionen-section">
+						<section id="attraktionen-section">
 							<div class="attraktionen-content">
 								<h2 class="title-h2">Alle Attraktionen</h2>
 								<h3 class="title-h3 title-blue">Magische Erlebnisse</h3>
@@ -106,7 +108,7 @@
 							</div>
 						</section>
 
-						<section>
+						<section id="impressionen-section">
 							<div class="impressionen-content">
 								<h2 class="title-h2">Impressionen</h2>
 								<h3 class="title-h3 title-blue">Lass dich von der Magie verzaubern</h3>
@@ -122,9 +124,56 @@
 									<div class="carousel-dots" role="tablist" aria-label="Galerie Navigation"></div>
 								</div>
 						</section>
+
+						<section id="quote-section">
+							<div class="quote-content">
+								<h2 class="title-h2">Widmung</h2>
+								<p class="quote">«Die Welt, die Sie betreten haben, wurde von der Walt Disney Company geschaffen und ist Hollywood gewidmet – kein Ort auf der Landkarte, sondern ein Geisteszustand, der überall dort existiert, wo Menschen träumen, staunen und sich vorstellen, ein Ort, an dem Illusion und Realität durch technologische Magie verschmelzen. Wir heißen Sie willkommen in einem Hollywood, das es niemals gab – und immer geben wird.»</p>
+								<p class="author">– Michael Eisner: 01. Mai 1989</p>
+							</div>
+						</section>
+
+						<section id="history-section">
+							<div class="history-content">
+								<img class="history-img" src="/assets/img/disney-hollywood-studios-sombrero_mgm.jpg" alt="Zaubererhut aus Fantasia" title="Zaubererhut aus Fantasia">
+							</div>
+							<div class="hero-text">
+								<h2 class="title-history title-h2">Disney’s Hollywood Studios</h2>
+								<h1 class="title-pink">Geschichte und Entwicklung</h1>
+								<div class="hero-text-container">
+									<p>Ein Team von Walt Disney Imagineers unter der Leitung von Marty Sklar und Randy Bright erhielt den Auftrag, zwei neue Pavillons für den Future World-Bereich von Epcot zu entwerfen. Die Brainstorming-Sitzungen führten zu den Konzepten für die Pavillons "Wonders of Life" und "Great Movie Ride". Letzterer sollte wie eine Filmkulisse aussehen, mit einem Eingang im Stil eines Kinos in der Mitte, und zwischen den Pavillons "The Land" und "Journey Into Imagination" platziert werden. Als der neu ernannte CEO Michael Eisner die Pläne für den Pavillon sah, forderte er, dass die Attraktion statt in einem bestehenden Park der Anker für einen neuen Park sein sollte, der sich mit Hollywood, Unterhaltung und Showbusiness thematisch beschäftigt.</p>
+								</div>
+							</div>
+						</section>
 						
 					</div>
 				</main>
+
+				<footer>
+					<div class="footer-content">
+						<div class="footer-top">
+								<img class="footer-logo" src="/assets/img/disney-hollywood-studios-logo-white.png" alt="Disney’s Hollywood Studios Logo" title="Disney’s Hollywood Studios Logo">
+								<div class="footer-links">
+									<a href="#themenbereiche-section">Themenbereiche</a>
+									<a href="#attraktionen-section">Alle Attraktionen</a>
+									<a href="#impressionen-section">Impressionen</a>
+									<a href="#quote-section">Widmung</a>
+									<a href="#history-section">Geschichte und Entwicklung</a>
+								</div>
+						</div>
+						<div class="divider"></div>
+						<div class="footer-bottom">
+							<a href="#">Impressum</a>
+							<a href="#">Datenschutz</a>
+						</div>
+						<div class="footerScrollTop">
+							<button class="scrollTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+								<p>Scroll top</p>
+								<img class="arrowTopImg" src="/assets/img/arrow-top.svg" alt="Pfeil nach oben" title="Pfeil nach oben">
+							</button>
+						</div>
+					</div>	
+				</footer>
 
 				<script>
 					(function () {
