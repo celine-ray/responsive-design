@@ -82,7 +82,7 @@ Spacings
 	--grid-gutter: 16px; /* gap between columns */
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1024px) {
 	:root {
 		--grid-columns: 12;
 		--page-margin: 80px;
@@ -100,6 +100,9 @@ body, p, a {
 a {
 	text-decoration: none;
 }
+p {
+	font-size: 1rem;
+}
 .menu-item {
 	font-family: "bricolage-grotesque", sans-serif;
 	font-weight: 500;
@@ -107,25 +110,27 @@ a {
 }
 h1, h2, h3, h4 {
 	font-family: "please-vf", sans-serif;
-	font-variation-settings: "wght" 800;
 	font-style: normal;
+	margin: 0;
 }
 h1, h3 {
 	font-size: var(--space-8);
 	line-height: var(--space-9);
+	font-variation-settings: "wght" 800;
 }
 h2 {
 	color: var(--color-red-50);
+	font-variation-settings: "wght" 500;
 }
 h4 {
 	font-size: var(--space-7);
 	line-height: 2.5rem;
 	margin: 0;
 }
-.title-blue {
+.titleBlue {
 	color: var(--color-blue-100);
 }
-.title-pink {
+.titlePink {
 	color: var(--color-pink-100);
 }
 /*----------------------------------------
@@ -136,6 +141,9 @@ button {
 	font-weight: 400;
 	font-style: normal;
 	cursor: pointer;
+	&:hover, &:active, &:focus {
+			transition: all 0.3s ease;
+	}
 }
 .button-default {
 	background-color: var(--color-red-50);
@@ -143,9 +151,9 @@ button {
 	padding: var(--space-2) var(--space-6);
 	border: none;
 	color: var(--color-text-negative);
-}
-.button-default:hover {
-	background-color: var(--color-red-75);
+	&:hover, &:active, &:focus {
+		background-color: var(--color-red-75);
+	}
 }
 button.scrollTop {
 	display: flex;
@@ -156,6 +164,10 @@ button.scrollTop {
 	border-radius: var(--corner-radius-big);
 	color: var(--color-text);
 	padding: 0 var(--space-4);
+	&:hover, &:active, &:focus {
+		transition: all 0.3s ease;
+		background-color: var(--color-blue-50);
+	}
 	p {
 		font-size: 14px;
 		font-weight: 600;
@@ -176,8 +188,9 @@ section, footer {
 	   to allow full-bleed backgrounds on sections */
 	padding: var(--space-11) 0;
 }
-#hero-section {
+#heroSection {
 	padding-top: 0;
+	padding-bottom: var(--space-9);
 }
 /* Layout container using the grid vars above. Use .content (existing) as the main page container. */
 .content,
@@ -187,7 +200,6 @@ section, footer {
 	gap: var(--grid-gutter);
 	box-sizing: border-box;
 }
-
 /* Make immediate top-level blocks span full width of the content grid so
    they align with the page margins. Inner elements can use .col-span-* to
    occupy columns. */
@@ -196,7 +208,6 @@ section, footer {
 .content > footer {
 	grid-column: 1 / -1;
 }
-
 /* Make body-level layout blocks span full width as well (header/main/footer)
    so the grid applies site-wide. */
 body > header,
@@ -204,10 +215,8 @@ body > main,
 body > footer {
 	grid-column: 1 / -1;
 }
-
 /* Utility: full width inside the grid */
 .full { grid-column: 1 / -1; }
-
 /* Column span helpers (1..12). They will work on both 8-col and 12-col
    setups; if a span > available columns it will simply occupy remaining space. */
 .col-span-1  { grid-column: span 1; }
@@ -229,9 +238,7 @@ body > footer {
 	max-width: none;
 	margin: 0 auto;
 }
-
-#themenbereiche-section, #history-section {
-	background-color: var(--color-pink-25);
+#themenbereicheSection, #historySection, #impressionenSection {
 	/* extend background to the viewport edges while keeping inner content
 	   aligned to the page margin */
 	box-sizing: border-box;
@@ -241,7 +248,9 @@ body > footer {
 	margin-left: calc(var(--page-margin) * -1);
 	margin-right: calc(var(--page-margin) * -1);
 }
-
+#themenbereicheSection, #historySection {
+	background-color: var(--color-pink-25);
+}
 /* Align immediate section children to the page margin so content stays
    within the grid while section backgrounds can be full-bleed. */
 .content > section > *,
@@ -252,18 +261,16 @@ body > footer > * {
 	padding-right: var(--page-margin);
 	box-sizing: border-box;
 }
-
 /* Exceptions: certain sections should not receive the page margin
    (they handle their own inner spacing or are full-bleed). */
-#hero-section > *,
-#attraktionen-section > *,
-#quote-section > * {
+#heroSection > *,
+#attraktionenSection > *,
+#quoteSection > * {
 	padding-left: 0;
 	padding-right: 0;
 }
-
 /* Make footer content participate in the grid */
-.footer-content {
+.footerContent {
 	display: flex;
 	flex-direction: column; /* stack elements vertically */
 	gap: var(--space-4);
@@ -288,7 +295,7 @@ header {
 	padding: var(--space-4) 0 0 0;
 	position: relative;
 }
-.menu-toggle {
+.menuToggle {
 	display: inline-flex;
 	align-items: center;
 	gap: 0.5rem;
@@ -300,11 +307,11 @@ header {
 	cursor: pointer;
 	padding: var(--space-2) var(--space-4);
 }
-.menu-toggle:focus {
+.menuToggle:focus {
 	outline: 2px solid var(--color-blue-75);
 	outline-offset: 2px;
 }
-.menu-label {
+.menuLabel {
 	font-size: 14px;
 	font-weight: 600;
 }
@@ -315,31 +322,31 @@ header {
  	width: 18px;
  	height: 12px; /* +2px so gaps increase by 1px */
 }
-
-/* header-controls placed at the end of the header grid */
-.header-controls {
+/* headerControls placed at the end of the header grid */
+.headerControls {
 	grid-column: 5 / -1;
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
 	gap: var(--space-3);
 }
-
-/* logo-link occupies first 4 columns */
-.logo-link { grid-column: 1 / span 4; display: inline-flex; align-items: center; }
+/* logoLink occupies first 4 columns */
+.logoLink { grid-column: 1 / span 4; display: inline-flex; align-items: center; }
 
 /* Desktop overrides: header logo 2 cols, footer logo 3 cols */
 @media (min-width: 900px) {
-	.logo-link { grid-column: 1 / span 2; }
-	.header-controls { grid-column: 3 / -1; }
-	.footer-logo { grid-column: span 3; }
-	.footer-top .footer-links { grid-column: span 9; }
+	.logoLink { grid-column: 1 / span 2; }
+	.headerControls { grid-column: 3 / -1; }
+	.footerLogo { grid-column: span 3; }
+	.footerTop .footerLinks { grid-column: span 9; }
 }
 
 /* Desktop wide: replace hamburger with inline menu items */
 @media (min-width: 900px) {
 	/* hide hamburger button */
-	.menu-toggle { display: none; }
+	.menuToggle { 
+		display: none; 
+	}
 
 	/* show nav as inline list even if it has the hidden attribute */
 	.main-menu,
@@ -351,9 +358,9 @@ header {
 		box-shadow: none;
 		margin: 0;
 	}
-
-	.header-controls { gap: var(--space-2); }
-
+	.headerControls { 
+		gap: var(--space-2); 
+	}
 	.main-menu ul {
 		display: flex;
 		gap: var(--space-2); /* 8px */
@@ -361,9 +368,9 @@ header {
 		padding: 0;
 		align-items: center;
 	}
-
-	.main-menu li { list-style: none; }
-
+	.main-menu li { 
+		list-style: none;
+	}
 	.main-menu a {
 		display: inline-flex;
 		align-items: center;
@@ -377,29 +384,26 @@ header {
 		border: 2px solid transparent;
 		transition: background 150ms ease, color 150ms ease, border-color 150ms ease;
 	}
-
 	.main-menu a:hover {
 		background: var(--color-blue-100);
 		color: var(--color-blue-25);
 	}
-
 	.main-menu a:focus {
 		background: var(--color-blue-25);
 		color: var(--color-blue-100);
 		border-color: var(--color-blue-100);
 		outline: none;
 	}
-
-	/* ensure header-controls align right */
-	.header-controls { justify-content: flex-end; }
+	/* ensure headerControls align right */
+	.headerControls { justify-content: flex-end; }
 }
+
 .hamburger .bar {
 	display: block;
 	height: 2px;
 	background: var(--color-text);
 	border-radius: 2px;
 }
-
 /* Animate hamburger -> X when menu is open (aria-expanded=true) */
 .hamburger {
 	position: relative;
@@ -412,19 +416,19 @@ header {
 	transition: transform 200ms ease, top 200ms ease, opacity 200ms ease;
 	transform-origin: center;
 }
-.hamburger .bar:nth-child(1) { top: 0; }
-.hamburger .bar:nth-child(2) { top: 5px; }
-.hamburger .bar:nth-child(3) { top: 10px; }
+.hamburger .bar:nth-child(1) {top: 0;}
+.hamburger .bar:nth-child(2) {top: 5px;}
+.hamburger .bar:nth-child(3) {top: 10px;}
 
-.menu-toggle[aria-expanded="true"] .hamburger .bar:nth-child(1) {
+.menuToggle[aria-expanded="true"] .hamburger .bar:nth-child(1) {
 	top: 5px;
 	transform: rotate(45deg);
 }
-.menu-toggle[aria-expanded="true"] .hamburger .bar:nth-child(2) {
+.menuToggle[aria-expanded="true"] .hamburger .bar:nth-child(2) {
 	opacity: 0;
 	transform: scaleX(0);
 }
-.menu-toggle[aria-expanded="true"] .hamburger .bar:nth-child(3) {
+.menuToggle[aria-expanded="true"] .hamburger .bar:nth-child(3) {
 	top: 5px;
 	transform: rotate(-45deg);
 }
@@ -457,12 +461,10 @@ header {
 	border-radius: var(--corner-radius-small);
 	transition: background 150ms ease, color 150ms ease, border-color 150ms ease;
 }
-
 .main-menu a:hover {
 	background: var(--color-blue-100);
 	color: var(--color-blue-25);
 }
-
 .main-menu a:focus {
 	background: var(--color-blue-25);
 	color: var(--color-blue-100);
@@ -470,20 +472,20 @@ header {
 	outline: none;
 }
 /* Hero video styles */
-#hero-section {
+#heroSection {
 	display: grid;
 	grid-template-columns: 1fr;
 	gap: var(--space-6);
 	align-items: center;
 }
-.hero-video {
+.heroVideo {
 	width: 100%;
 	height: 420px;
 	max-height: 420px;
 	overflow: hidden;
 	border-radius: 6px;
 }
-.hero-bg-video {
+.heroBgVideo {
 	width: 100%;
 	height: 100%;
 	display: block;
@@ -491,8 +493,26 @@ header {
 	border-radius: var(--corner-radius-small);
 }
 /*----------------------------------------
+Hero Section
+----------------------------------------*/
+.heroContent {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-3);
+}
+/*----------------------------------------
 Themenbereiche Section
 ----------------------------------------*/
+.themenbereicheBtn {
+	display: flex;
+	justify-content: center;
+	margin-top: var(--space-6);
+}
+.cardsContainer {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: var(--space-6);
+}
 .card {
 	display: flex;
 	flex-direction: column;
@@ -501,16 +521,16 @@ Themenbereiche Section
 	border-radius: var(--corner-radius-small);
 	overflow: hidden;
 }
-.card-img,
-.card-content {
+.cardImg,
+.cardContent {
 	margin: 0;
 }
-.card-img {
+.cardImg {
 	width: 100%;
 	height: 236px;
 	border-radius: var(--corner-radius-small) var(--corner-radius-small) 0 0;
 }
-.card-content {
+.cardContent {
 	padding: var(--space-7);
 	background-color: var(--color-blue-100);
 	border-radius: 0 0 var(--corner-radius-small) var(--corner-radius-small);
@@ -524,29 +544,44 @@ Themenbereiche Section
 /*----------------------------------------
 Impressionen Section
 ----------------------------------------*/
+#impressionenSection {
+	background-color: var(--color-blue-25);
+}
 /* Carousel styles */
 .carousel {
 	position: relative;
 	border-radius: var(--corner-radius-small);
 	overflow: hidden;
-	background: var(--color-background);
 }
-.carousel-track {
+.gallery {
+    /* make the carousel occupy 6 columns and center within the page grid */
+		display: grid;
+    grid-column: 2 / span 6; /* mobile: start at column 2 for 8-col grid */
+    justify-self: stretch;
+}
+
+@media (min-width: 900px) {
+    .gallery {
+        grid-column: 4 / span 6; /* desktop: center 6 of 12 columns */
+    }
+}
+.carouselTrack {
 	display: flex;
 	transition: transform 0.4s ease-in-out;
 	will-change: transform;
 }
-.carousel-slide {
+.carouselSlide {
 	min-width: 100%;
 	flex-shrink: 0;
 }
-.carousel-slide img {
+.carouselSlide img {
 	width: 100%;
 	height: 300px; /* requested */
 	object-fit: cover;
 	display: block;
+	border-radius: var(--corner-radius-big);
 }
-.carousel-arrow {
+.carouselArrow {
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
@@ -564,19 +599,49 @@ Impressionen Section
 	line-height: 1;
 	z-index: 30;
 }
-.carousel-arrow:hover {
-	background: var(--color-blue-50);
+.carouselArrow {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 40px;
+	height: 40px;
+	border: none;
+	background: transparent; /* no background, per request */
+	padding: 0;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	z-index: 40;
 }
-.carousel-arrow.prev { left: 12px; }
-.carousel-arrow.next { right: 12px; }
-.carousel-dots {
+
+/* place arrows outside the gallery into the outermost page margins */
+.carouselArrow.prev {
+	left: calc(var(--page-margin) * -1 + 8px);
+}
+.carouselArrow.next {
+	right: calc(var(--page-margin) * -1 + 8px);
+}
+
+/* Desktop: move arrows further out to align with outermost grid columns */
+@media (min-width: 900px) {
+	.carouselArrow.prev { left: calc(var(--page-margin) * -1 + 12px); }
+	.carouselArrow.next { right: calc(var(--page-margin) * -1 + 12px); }
+}
+
+.carouselArrow img {
+	display: block;
+	width: 24px;
+	height: 24px;
+}
+.carouselDots {
 	display: flex;
 	gap: 0.5rem;
 	justify-content: center;
 	align-items: center;
 	padding: 0.75rem 0 1rem 0;
 }
-.carousel-dots button {
+.carouselDots button {
 	width: 16px;
 	height: 16px;
 	border-radius: 50%;
@@ -584,28 +649,28 @@ Impressionen Section
 	background: var(--color-blue-50);
 	cursor: pointer;
 }
-.carousel-dots button.active {
+.carouselDots button.active {
 	background: var(--color-blue-100);
 }
-.carousel-dots button:hover { background: var(--color-blue-50); }
+.carouselDots button:hover { background: var(--color-blue-50); }
 
 /* Small responsive tweaks */
 @media (min-width: 900px) {
-	.carousel-slide img { height: 300px; }
+	.carouselSlide img { height: 300px; }
 }
 
 /*----------------------------------------
 History Section
 ----------------------------------------*/
-.history-content {
+.historyContent {
 	display: flex;
 	flex-direction: column;
 }
-.history-content {
+.historyContent {
 	height: 265px;
 	
 }
-.history-img {
+.historyImg {
 	border-radius: var(--corner-radius-small);
 	overflow: hidden;
 	display: flex;
@@ -625,11 +690,11 @@ footer {
 	margin-left: calc(var(--page-margin) * -1);
 	margin-right: calc(var(--page-margin) * -1);
 }
-.footer-top a {
+.footerTop a {
 	color: var(--color-text-negative);
 	text-decoration: none;
 }
-.footer-bottom {
+.footerBottom {
 	a {
 		color: var(--color-blue-50);
 	}
@@ -637,7 +702,7 @@ footer {
 		color: var(--color-blue-25);
 	}
 }
-.footer-logo {
+.footerLogo {
 	width: 100%;
 	height: auto;
 	display: block;
@@ -646,13 +711,13 @@ footer {
 	/* default span: half the grid */
 	grid-column: span 6;
 }
-.footer-top {
+.footerTop {
 	display: grid;
 	grid-template-columns: repeat(var(--grid-columns), 1fr);
 	gap: var(--grid-gutter);
 	align-items: center;
 }
-.footer-top .footer-links { 
+.footerTop .footerLinks { 
 	grid-column: span 6;
 }
 .footerScrollTop {
