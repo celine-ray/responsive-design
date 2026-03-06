@@ -21,13 +21,13 @@
 								<span class="bar"></span>
 							</span>
 						</button>
-						<nav id="mainMenu" class="main-menu" hidden>
-							<ul>
-								<li><a href="#themenbereicheSection">Themenbereiche</a></li>
-								<li><a href="#attraktionenSection">Alle Attraktionen</a></li>
-								<li><a href="#impressionenSection">Impressionen</a></li>
-								<li><a href="#widmung-section">Widmung</a></li>
-								<li><a href="#historySection">Geschichte und Entwicklung</a></li>
+						<nav id="mainMenu" class="mainMenu" hidden>
+							<ul class="backgroundNav">
+								<li><a class="fontMenuItem" href="#themenbereicheSection">Themenbereiche</a></li>
+								<li><a class="fontMenuItem" href="#attraktionenSection">Alle Attraktionen</a></li>
+								<li><a class="fontMenuItem" href="#impressionenSection">Impressionen</a></li>
+								<li><a class="fontMenuItem" href="#widmung-section">Widmung</a></li>
+								<li><a class="fontMenuItem" href="#historySection">Geschichte und Entwicklung</a></li>
 							</ul>
 						</nav>
 					</div>
@@ -35,6 +35,7 @@
 
 				<main>
 					<div class="content">
+						<!-- Hero Section -->
 						<section id="heroSection">
 							<div class="heroVideo">
 								<video class="heroBgVideo" autoplay muted loop playsinline poster="/assets/img/hollywood-boulevard.jpg" aria-label="Hollywood Studios Intro Video">
@@ -50,73 +51,79 @@
 								<h1 class="titleBlue">Themenpark im Walt Disney World Resort</h1>
 								</div>
 								<div class="hero-text-container">
-									<p>Disney's Hollywood Studios ist ein Themenpark im Walt Disney World Resort in Bay Lake, Florida, in der Nähe von Orlando. Er wird von der Walt Disney Company durch deren Experiences-Sparte betrieben. </p>
+									<p class="fontSizeBase">Disney's Hollywood Studios ist ein Themenpark im Walt Disney World Resort in Bay Lake, Florida, in der Nähe von Orlando. Er wird von der Walt Disney Company durch deren Experiences-Sparte betrieben. </p>
 								</div>
-								<a href="#historySection"><button class="button-default">Jetzt mehr erfahren</button></a>
+								<a href="#historySection"><button class="buttonDefault fontNegative">Jetzt mehr erfahren</button></a>
 							</div>
 						</section>
-
-						<section id="themenbereicheSection">
+						<!-- Themenbereiche -->
+						<section id="themenbereicheSection" class="bgPink bgSpacing">
 							<div class="themenbereicheContent">
-								<h2 class="titleH2">Themenbereiche</h2>
-								<h3 class="titleH3 titlePink">Neue Welten entdecken</h3>
+								<div class="themenbereicheTitle">
+									<h2 class="titleH2">Themenbereiche</h2>
+									<h3 class="titleH3 titlePink">Neue Welten entdecken</h3>
+								</div>
 								<div class="cardsContainer">
-									<div class="card cardStarWars">
+									<div id="cardStarWars" class="card cardStarWars">
 										<img class="cardImg" src="/assets/img/disney-hollywood-studios-star-wars-smugglers-run-night.jpg" alt="Star Wars: Galaxy’s Edge" title="Star Wars: Galaxy’s Edge">
 										<div class="cardContent">
 											<h4 class="cardTitle">Star Wars: Galaxy's Edge</h4>
-											<p>Star Wars: Galaxy's Edge spielt im Star-Wars-Universum, im Dorf Black Spire Outpost auf dem abgelegenen Grenzplaneten Batuu. Zu den Attraktionen gehören Star Wars: Rise of the Resistance und Millennium Falcon: Smugglers Run.</p>
+											<p class="fontSizeBase fontNegative">Star Wars: Galaxy's Edge spielt im Star-Wars-Universum, im Dorf Black Spire Outpost auf dem abgelegenen Grenzplaneten Batuu. Zu den Attraktionen gehören Star Wars: Rise of the Resistance und Millennium Falcon: Smugglers Run.</p>
 										</div>
 									</div>
-									<div class="card cardToyStoryLand">
+									<div id="cardToyStoryLand" class="card cardToyStoryLand">
 										<img class="cardImg" src="/assets/img/disney-hollywood-studios-toy-story-land.jpg" alt="Toy Story Land" title="Toy Story Land">
 										<div class="cardContent">
 											<h4 class="cardTitle">Toy Story Land</h4>
-											<p>Zu den Attraktionen gehören Toy Story Mania!, eine interaktive 4D-Attraktion, die von klassischen Jahrmarktspielen inspiriert ist; Slinky Dog Dash, eine Outdoor-Achterbahn; und Alien Swirling Saucers, eine Attraktion im Stil einer Whip-Fahrt.</p>
+											<p class="fontSizeBase fontNegative">Zu den Attraktionen gehören Toy Story Mania!, eine interaktive 4D-Attraktion, die von klassischen Jahrmarktspielen inspiriert ist; Slinky Dog Dash, eine Outdoor-Achterbahn; und Alien Swirling Saucers, eine Attraktion im Stil einer Whip-Fahrt.</p>
 										</div>
 									</div>
-									<div class="card cardPixarPlaza">
+									<div id="cardPixarPlaza" class="card cardPixarPlaza">
 										<img class="cardImg" src="/assets/img/disney-hollywood-studios-pixar-place.jpg" alt="Pixar Plaza" title="Pixar Plaza">
 										<div class="cardContent">
 											<h4 class="cardTitle">Pixar Plaza</h4>
-											<p>Der Bereich bietet den Gästen die Möglichkeit, verschiedene Pixar-Charaktere zu treffen, darunter Edna Mode, Mr. und Mrs. Incredible, Frozone sowie Sulley aus "Die Monster AG".</p>
+											<p class="fontSizeBase fontNegative">Der Bereich bietet den Gästen die Möglichkeit, verschiedene Pixar-Charaktere zu treffen, darunter Edna Mode, Mr. und Mrs. Incredible, Frozone sowie Sulley aus "Die Monster AG".</p>
 										</div>
 									</div>
-									<div class="card cardHollywoodBoulevard">
+									<div id="cardHollywoodBoulevard" class="card cardHollywoodBoulevard">
 										<img class="cardImg" src="/assets/img/disney-hollywood-studios-hollywood-boulevard.jpg" alt="Hollywood Boulevard" title="Hollywood Boulevard">
 										<div class="cardContent">
 											<h4 class="cardTitle">Hollywood Boulevard</h4>
-											<p>Der Hollywood Boulevard, inspiriert von der gleichnamigen Straße, dient als Haupteingang des Parks und funktioniert ähnlich wie die Main Street, U.S.A. im Magic Kingdom. Er ist gesäumt von thematischen Fassaden und Geschäften, die Disney-Waren und Parkdienstleistungen anbieten.</p>
+											<p class="fontSizeBase fontNegative">Der Hollywood Boulevard, inspiriert von der gleichnamigen Straße, dient als Haupteingang des Parks und funktioniert ähnlich wie die Main Street, U.S.A. im Magic Kingdom. Er ist gesäumt von thematischen Fassaden und Geschäften, die Disney-Waren und Parkdienstleistungen anbieten.</p>
 										</div>
 									</div>
 								</div>
-								<div class="themenbereicheBtn"><a href="#attraktionenSection"><button class="button-default">Alle Attraktionen erkunden</button></a></div>
+								<div class="themenbereicheBtn"><a href="#attraktionenSection"><button class="buttonDefault fontNegative">Alle Attraktionen erkunden</button></a></div>
 							</div>
 						</section>
-
+						<!-- Alle Attraktionen -->
 						<section id="attraktionenSection">
 							<div class="attraktionenContent">
-								<h2 class="titleH2">Alle Attraktionen</h2>
-								<h3 class="titleH3 titleBlue">Magische Erlebnisse</h3>
-								<ul>
-									<li>Hollywood Boulevard</li>
-									<li>Echo Lake</li>
-									<li>Commissary Lane</li>
-									<li>Grand Avenue</li>
-									<li>Star Wars: Galaxy's Edge</li>
-									<li>Toy Story Land</li>
-									<li>Pixar Plaza</li>
-									<li>Animation Courtyard</li>
-									<li>Sunset Boulevard</li>
-									<li>Live Entertainment</li>
+								<div class="attraktionenTitle">
+									<h2 class="titleH2">Alle Attraktionen</h2>
+									<h3 class="titleH3 titleBlue">Magische Erlebnisse</h3>
+								</div>
+								<ul class="attraktionenList">
+									<a class="listItem" href="#cardHollywoodBoulevard"><li>Hollywood Boulevard</li></a>
+									<li class="listItem">Echo Lake</li>
+									<li class="listItem">Commissary Lane</li>
+									<li class="listItem">Grand Avenue</li>
+									<a class="listItem" href="#cardStarWars"><li>Star Wars: Galaxy's Edge</li></a>
+									<a class="listItem" href="#cardToyStoryLand"><li>Toy Story Land</li></a>
+									<a class="listItem" href="#cardPixarPlaza"><li>Pixar Plaza</li></a>
+									<li class="listItem">Animation Courtyard</li>
+									<li class="listItem">Sunset Boulevard</li>
+									<li class="listItem">Live Entertainment</li>
 								</ul>
 							</div>
 						</section>
-
-						<section id="impressionenSection">
+						<!-- Impressionen -->
+						<section id="impressionenSection" class="bgSpacing">
 							<div class="impressionenContent">
-								<h2 class="titleH2">Impressionen</h2>
-								<h3 class="titleH3 titleBlue">Lass dich von der Magie verzaubern</h3>
+								<div class="impressionenTitle">
+									<h2 class="titleH2">Impressionen</h2>
+									<h3 class="titleH3 titleBlue">Lass dich von der Magie verzaubern</h3>
+								</div>
 								<div class="gallery carousel" aria-label="Impressionen Galerie">
 									<div class="carouselTrack">
 										<div class="carouselSlide"><img src="/assets/img/disney-hollywood-studios-castle.jpg" alt="Disney’s Hollywood Studios Schloss" title="Disney’s Hollywood Studios Schloss"></div>
@@ -124,25 +131,26 @@
 										<div class="carouselSlide"><img src="/assets/img/disney-hollywood-studios-animation-courtyard.jpg" alt="Disney’s Hollywood Studios Animation Courtyard" title="Disney’s Hollywood Studios Animation Courtyard"></div>
 										<div class="carouselSlide"><img src="/assets/img/disney-hollywood-studios-hollywood-tower-hotel.jpg" alt="Disney’s Hollywood Studios Hollywood Tower Hotel" title="Disney’s Hollywood Studios Hollywood Tower Hotel"></div>
 									</div>
-									<button class="carouselArrow prev" aria-label="Vorheriges Bild">
-										<img src="/assets/img/arrow-left.svg" alt="Pfeil links" width="24" height="24"/>
-									</button>
-									<button class="carouselArrow next" aria-label="Nächstes Bild">
-										<img src="/assets/img/arrow-right.svg" alt="Pfeil rechts" width="24" height="24"/>
-									</button>
 									<div class="carouselDots" role="tablist" aria-label="Galerie Navigation"></div>
 								</div>
+								<!-- Carousel arrows placed outside of .gallery so they sit in the outer columns -->
+								<button class="carouselArrow prev" aria-label="Vorheriges Bild">
+									<img src="/assets/img/arrow-left.svg" alt="Pfeil links" width="24" height="24"/>
+								</button>
+								<button class="carouselArrow next" aria-label="Nächstes Bild">
+									<img src="/assets/img/arrow-right.svg" alt="Pfeil rechts" width="24" height="24"/>
+								</button>
 						</section>
-
+						<!-- Widmung -->
 						<section id="quoteSection">
 							<div class="quoteContent">
 								<h2 class="titleH2">Widmung</h2>
-								<p class="quote">«Die Welt, die Sie betreten haben, wurde von der Walt Disney Company geschaffen und ist Hollywood gewidmet – kein Ort auf der Landkarte, sondern ein Geisteszustand, der überall dort existiert, wo Menschen träumen, staunen und sich vorstellen, ein Ort, an dem Illusion und Realität durch technologische Magie verschmelzen. Wir heißen Sie willkommen in einem Hollywood, das es niemals gab – und immer geben wird.»</p>
+								<p class="fontQuote">«Die Welt, die Sie betreten haben, wurde von der Walt Disney Company geschaffen und ist Hollywood gewidmet – kein Ort auf der Landkarte, sondern ein Geisteszustand, der überall dort existiert, wo Menschen träumen, staunen und sich vorstellen, ein Ort, an dem Illusion und Realität durch technologische Magie verschmelzen. Wir heißen Sie willkommen in einem Hollywood, das es niemals gab – und immer geben wird.»</p>
 								<p class="author">– Michael Eisner: 01. Mai 1989</p>
 							</div>
 						</section>
-
-						<section id="historySection">
+						<!-- Geschichte und Entwicklung -->
+						<section id="historySection" class="bgPink bgSpacing">
 							<div class="historyContent">
 								<img class="historyImg" src="/assets/img/disney-hollywood-studios-sombrero_mgm.jpg" alt="Zaubererhut aus Fantasia" title="Zaubererhut aus Fantasia">
 							</div>
@@ -150,7 +158,7 @@
 								<h2 class="titleHistory titleH2">Disney’s Hollywood Studios</h2>
 								<h1 class="titlePink">Geschichte und Entwicklung</h1>
 								<div class="historyTextContainer">
-									<p>Ein Team von Walt Disney Imagineers unter der Leitung von Marty Sklar und Randy Bright erhielt den Auftrag, zwei neue Pavillons für den Future World-Bereich von Epcot zu entwerfen. Die Brainstorming-Sitzungen führten zu den Konzepten für die Pavillons "Wonders of Life" und "Great Movie Ride". Letzterer sollte wie eine Filmkulisse aussehen, mit einem Eingang im Stil eines Kinos in der Mitte, und zwischen den Pavillons "The Land" und "Journey Into Imagination" platziert werden. Als der neu ernannte CEO Michael Eisner die Pläne für den Pavillon sah, forderte er, dass die Attraktion statt in einem bestehenden Park der Anker für einen neuen Park sein sollte, der sich mit Hollywood, Unterhaltung und Showbusiness thematisch beschäftigt.</p>
+									<p class="fontSizeBase">Ein Team von Walt Disney Imagineers unter der Leitung von Marty Sklar und Randy Bright erhielt den Auftrag, zwei neue Pavillons für den Future World-Bereich von Epcot zu entwerfen. Die Brainstorming-Sitzungen führten zu den Konzepten für die Pavillons "Wonders of Life" und "Great Movie Ride". Letzterer sollte wie eine Filmkulisse aussehen, mit einem Eingang im Stil eines Kinos in der Mitte, und zwischen den Pavillons "The Land" und "Journey Into Imagination" platziert werden. Als der neu ernannte CEO Michael Eisner die Pläne für den Pavillon sah, forderte er, dass die Attraktion statt in einem bestehenden Park der Anker für einen neuen Park sein sollte, der sich mit Hollywood, Unterhaltung und Showbusiness thematisch beschäftigt.</p>
 								</div>
 							</div>
 						</section>
@@ -163,11 +171,11 @@
 						<div class="footerTop">
 								<img class="footerLogo" src="/assets/img/disney-hollywood-studios-logo-white.png" alt="Disney’s Hollywood Studios Logo" title="Disney’s Hollywood Studios Logo">
 								<div class="footerLinks">
-									<a href="#themenbereicheSection">Themenbereiche</a>
-									<a href="#attraktionenSection">Alle Attraktionen</a>
-									<a href="#impressionenSection">Impressionen</a>
-									<a href="#quoteSection">Widmung</a>
-									<a href="#historySection">Geschichte und Entwicklung</a>
+									<a class="fontNegative" href="#themenbereicheSection">Themenbereiche</a>
+									<a class="fontNegative" href="#attraktionenSection">Alle Attraktionen</a>
+									<a class="fontNegative" href="#impressionenSection">Impressionen</a>
+									<a class="fontNegative" href="#quoteSection">Widmung</a>
+									<a class="fontNegative" href="#historySection">Geschichte und Entwicklung</a>
 								</div>
 						</div>
 						<div class="divider"></div>
@@ -177,7 +185,7 @@
 						</div>
 						<div class="footerScrollTop">
 							<button class="scrollTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-								<p>Scroll top</p>
+								<p class="fontSizeSmall">Scroll top</p>
 								<img class="arrowTopImg" src="/assets/img/arrow-top.svg" alt="Pfeil nach oben" title="Pfeil nach oben">
 							</button>
 						</div>
@@ -213,8 +221,10 @@
 						if (!slider) return;
 						const track = slider.querySelector('.carouselTrack');
 						const slides = Array.from(track.querySelectorAll('.carouselSlide'));
-						const prevBtn = slider.querySelector('.carouselArrow.prev');
-						const nextBtn = slider.querySelector('.carouselArrow.next');
+						// arrows were moved outside .gallery; look for them on the slider's parent container
+						const container = slider.parentElement || document;
+						const prevBtn = container.querySelector('.carouselArrow.prev') || slider.querySelector('.carouselArrow.prev');
+						const nextBtn = container.querySelector('.carouselArrow.next') || slider.querySelector('.carouselArrow.next');
 						const dotsContainer = slider.querySelector('.carouselDots');
 						let current = 0;
 
@@ -242,8 +252,8 @@
 							update();
 						}
 
-						prevBtn.addEventListener('click', () => goTo(current - 1));
-						nextBtn.addEventListener('click', () => goTo(current + 1));
+						if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));
+						if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1));
 
 						// keyboard support
 						slider.addEventListener('keydown', (e) => {

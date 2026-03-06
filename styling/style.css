@@ -1,8 +1,6 @@
-/*** RESTORED: General top-level styles ***/
 /*****************************************
  * MOBILE *
  *****************************************/
-
 /*----------------------------------------
 General Styles
 ----------------------------------------*/
@@ -22,43 +20,29 @@ body {
     overflow-x: hidden;
 }
 :root {
-    box-sizing: border-box;
-    --corner-radius-btn: 8px;
-    --corner-radius-small: 16px;
-    --corner-radius-big: 24px;
-}
-/*----------------------------------------
-Color Styles
-----------------------------------------*/
-:root {
-  /* Blue */
+	/* Color Styles */
   --color-blue-100: #0023D1;
   --color-blue-75: #657EFF;
   --color-blue-50: #9EB5FF;
   --color-blue-25: #DDE5FF;
-
-	/* Pink */
 	--color-pink-100: #6E0056;
 	--color-pink-75: #B4008C;
 	--color-pink-50: #F154CE;
 	--color-pink-25: #FFDBF7;
-
-	/* Red */
 	--color-red-100: #BA0000;
 	--color-red-75: #E81313;
 	--color-red-50: #FF4646;
 	--color-red-25: #FFA7A7;
-
-  /* Neutral colors */
   --color-background: #ffffff;
   --color-text: #171717;
   --color-text-negative: #ffffff;
-}
-/*----------------------------------------
-Spacings
-----------------------------------------*/
-:root {
-  --space-0: 0;
+	/* box sizing and border radius */
+	box-sizing: border-box;
+	--corner-radius-btn: 8px;
+	--corner-radius-small: 16px;
+	--corner-radius-big: 24px;
+	/* spacings */
+	--space-0: 0;
   --space-1: 0.25rem;  /* 4px */
   --space-2: 0.5rem;   /* 8px */
   --space-3: 0.75rem;  /* 12px */
@@ -72,22 +56,17 @@ Spacings
   --space-11: 5rem;   /* 80px */
   --space-12: 7.5rem; /* 120px */
   --space-13: 10rem;  /* 160px */
-}
-
-/* Grid system (Figma): mobile 8 cols / margin 24px / gutter 16px
+	/* Grid system (Figma): mobile 8 cols / margin 24px / gutter 16px
 	 desktop 12 cols / margin 80px / gutter 24px */
-:root {
 	--grid-columns: 8;
 	--page-margin: 24px; /* horizontal page margin */
 	--grid-gutter: 16px; /* gap between columns */
-}
-
-@media (min-width: 1024px) {
-	:root {
-		--grid-columns: 12;
-		--page-margin: 80px;
-		--grid-gutter: 24px;
-	}
+	--gap-default: var(--space-6);
+	/* text styles */
+	--font-size-small: 14px;
+	--font-size-base: 16px;
+	--font-size-menu-item: 20px;
+	--font-size-quote: 24px;
 }
 /*----------------------------------------
 Text Styles
@@ -100,13 +79,25 @@ body, p, a {
 a {
 	text-decoration: none;
 }
-p {
-	font-size: 1rem;
+.fontSizeSmall {
+	font-size: var(--font-size-small);
+	font-weight: 600;
 }
-.menu-item {
+.fontSizeBase {
+	font-size: var(--font-size-base);
+}
+.fontNegative {
+	color: var(--color-text-negative);
+}
+.fontQuote {
+	font-size: var(--font-size-quote);
+	font-variation-settings: "wght" 200;
+}
+.fontMenuItem {
 	font-family: "bricolage-grotesque", sans-serif;
 	font-weight: 500;
 	font-style: normal;
+	font-size: var(--font-size-menu-item);
 }
 h1, h2, h3, h4 {
 	font-family: "please-vf", sans-serif;
@@ -145,12 +136,11 @@ button {
 			transition: all 0.3s ease;
 	}
 }
-.button-default {
+.buttonDefault {
 	background-color: var(--color-red-50);
 	border-radius: var(--corner-radius-btn);
 	padding: var(--space-2) var(--space-6);
 	border: none;
-	color: var(--color-text-negative);
 	&:hover, &:active, &:focus {
 		background-color: var(--color-red-75);
 	}
@@ -168,10 +158,6 @@ button.scrollTop {
 		transition: all 0.3s ease;
 		background-color: var(--color-blue-50);
 	}
-	p {
-		font-size: 14px;
-		font-weight: 600;
-	}
 	img {
 		width: 24px;
 	}
@@ -179,6 +165,10 @@ button.scrollTop {
 .divider {
 	border: 0.5px solid var(--color-blue-25);
 	width: 100%;
+}
+.backgroundNav {
+	background-color: var(--color-blue-25);
+	color: var(--color-blue-100);
 }
 /*----------------------------------------
 Sections
@@ -238,9 +228,8 @@ body > footer {
 	max-width: none;
 	margin: 0 auto;
 }
-#themenbereicheSection, #historySection, #impressionenSection {
-	/* extend background to the viewport edges while keeping inner content
-	   aligned to the page margin */
+.bgSpacing {
+	/* extend background to the viewport edges while keeping inner content aligned to the page margin */
 	box-sizing: border-box;
 	/* keep the full-bleed visual while preventing overflow */
 	width: calc(100% + (var(--page-margin) * 2));
@@ -248,11 +237,10 @@ body > footer {
 	margin-left: calc(var(--page-margin) * -1);
 	margin-right: calc(var(--page-margin) * -1);
 }
-#themenbereicheSection, #historySection {
+.bgPink {
 	background-color: var(--color-pink-25);
 }
-/* Align immediate section children to the page margin so content stays
-   within the grid while section backgrounds can be full-bleed. */
+/* Align immediate section children to the page margin so content stays within the grid while section backgrounds can be full-bleed. */
 .content > section > *,
 .content > footer > *,
 body > section > *,
@@ -261,8 +249,7 @@ body > footer > * {
 	padding-right: var(--page-margin);
 	box-sizing: border-box;
 }
-/* Exceptions: certain sections should not receive the page margin
-   (they handle their own inner spacing or are full-bleed). */
+/* Exceptions: certain sections should not receive the page margin (they handle their own inner spacing or are full-bleed). */
 #heroSection > *,
 #attraktionenSection > *,
 #quoteSection > * {
@@ -293,7 +280,10 @@ header {
 	align-items: center;
 	gap: var(--space-4);
 	padding: var(--space-4) 0 0 0;
-	position: relative;
+	/* make header stick to the top so the menu stays visible while scrolling */
+	position: sticky;
+	top: 0;
+	z-index: 120;
 }
 .menuToggle {
 	display: inline-flex;
@@ -331,73 +321,11 @@ header {
 	gap: var(--space-3);
 }
 /* logoLink occupies first 4 columns */
-.logoLink { grid-column: 1 / span 4; display: inline-flex; align-items: center; }
-
-/* Desktop overrides: header logo 2 cols, footer logo 3 cols */
-@media (min-width: 900px) {
-	.logoLink { grid-column: 1 / span 2; }
-	.headerControls { grid-column: 3 / -1; }
-	.footerLogo { grid-column: span 3; }
-	.footerTop .footerLinks { grid-column: span 9; }
+.logoLink { 
+	grid-column: 1 / span 4; 
+	display: inline-flex; 
+	align-items: center; 
 }
-
-/* Desktop wide: replace hamburger with inline menu items */
-@media (min-width: 900px) {
-	/* hide hamburger button */
-	.menuToggle { 
-		display: none; 
-	}
-
-	/* show nav as inline list even if it has the hidden attribute */
-	.main-menu,
-	.main-menu[hidden] {
-		display: flex !important;
-		position: static;
-		width: auto;
-		background: transparent;
-		box-shadow: none;
-		margin: 0;
-	}
-	.headerControls { 
-		gap: var(--space-2); 
-	}
-	.main-menu ul {
-		display: flex;
-		gap: var(--space-2); /* 8px */
-		margin: 0;
-		padding: 0;
-		align-items: center;
-	}
-	.main-menu li { 
-		list-style: none;
-	}
-	.main-menu a {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		padding: var(--space-2) var(--space-6); /* 8px vertical, 24px horizontal */
-		border-radius: var(--corner-radius-big); /* 24px */
-		background: var(--color-blue-25);
-		color: var(--color-blue-100);
-		text-decoration: none;
-		font-weight: 500;
-		border: 2px solid transparent;
-		transition: background 150ms ease, color 150ms ease, border-color 150ms ease;
-	}
-	.main-menu a:hover {
-		background: var(--color-blue-100);
-		color: var(--color-blue-25);
-	}
-	.main-menu a:focus {
-		background: var(--color-blue-25);
-		color: var(--color-blue-100);
-		border-color: var(--color-blue-100);
-		outline: none;
-	}
-	/* ensure headerControls align right */
-	.headerControls { justify-content: flex-end; }
-}
-
 .hamburger .bar {
 	display: block;
 	height: 2px;
@@ -432,50 +360,47 @@ header {
 	top: 5px;
 	transform: rotate(-45deg);
 }
-.main-menu {
+.mainMenu {
 	position: absolute;
 	top: 100%;
 	left: 0;
 	width: 100%;
-	background: var(--color-background);
-	box-shadow: 0 6px 18px rgba(23,23,23,0.12);
 	z-index: 40;
 }
-.main-menu[hidden] {
+.mainMenu[hidden] {
 	display: none;
 }
-.main-menu ul {
+.mainMenu ul {
 	list-style: none;
 	margin: 0;
 	padding: 0.5rem 0;
+	border-radius: var(--corner-radius-small);
 }
-.main-menu li + li {
+/* .mainMenu li + li {
 	border-top: 1px solid rgba(0,0,0,0.06);
-}
-.main-menu a {
+}*/
+.mainMenu a {
 	display: block;
 	padding: 0.75rem 1rem;
 	color: var(--color-blue-100);
-	text-decoration: none;
 	border: 2px solid transparent;
 	border-radius: var(--corner-radius-small);
 	transition: background 150ms ease, color 150ms ease, border-color 150ms ease;
-}
-.main-menu a:hover {
-	background: var(--color-blue-100);
-	color: var(--color-blue-25);
-}
-.main-menu a:focus {
-	background: var(--color-blue-25);
-	color: var(--color-blue-100);
-	border-color: var(--color-blue-100);
-	outline: none;
+	&:hover {
+		color: var(--color-blue-50);
+	}
+	&:focus {
+		background: var(--color-blue-25);
+		color: var(--color-blue-100);
+		border-color: var(--color-blue-100);
+		outline: none;
+	}
 }
 /* Hero video styles */
 #heroSection {
 	display: grid;
 	grid-template-columns: 1fr;
-	gap: var(--space-6);
+	gap: var(--gap-default);
 	align-items: center;
 }
 .heroVideo {
@@ -495,10 +420,15 @@ header {
 /*----------------------------------------
 Hero Section
 ----------------------------------------*/
-.heroContent {
-	display: flex;
-	flex-direction: column;
+#heroSection {
+	display: grid;
+	grid-template-rows: 1fr 1fr;
+	grid-template-columns: 1fr;
 	gap: var(--space-3);
+}
+.heroContent {
+	display: grid;
+	gap: var(--space-4);
 }
 /*----------------------------------------
 Themenbereiche Section
@@ -506,12 +436,16 @@ Themenbereiche Section
 .themenbereicheBtn {
 	display: flex;
 	justify-content: center;
-	margin-top: var(--space-6);
+	margin-top: var(--space-2);
+}
+.themenbereicheContent {
+	display: grid;
+	gap: var(--space-7);
 }
 .cardsContainer {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-	gap: var(--space-6);
+	gap: var(--gap-default);
 }
 .card {
 	display: flex;
@@ -537,8 +471,44 @@ Themenbereiche Section
 	h4 {
 		color: var(--color-pink-50);
 	}
-	p {
-		color: var(--color-text-negative);
+}
+/*----------------------------------------
+Alle Attraktionen Section
+----------------------------------------*/
+#attraktionenSection {
+	/* make the UL use the site grid so its LI children can be placed
+	   on the global column lines (repeat var(--grid-columns) columns) */
+	display: grid;
+	grid-template-columns: repeat(var(--grid-columns), 1fr);
+	grid-auto-rows: auto;
+}
+ul {
+	padding: 0;
+	display: grid;
+}
+.attraktionenContent {
+	display: grid;
+	/* span columns 2..8 per request */
+	grid-column: 2 / 8;
+	gap: var(--space-7);
+}
+.attraktionenContent {
+	/* span columns 2..8 per request */
+	grid-column: 2 / 8;
+}
+.listItem {
+	color: var(--color-text);
+	list-style-type: none;
+	padding: var(--space-4) 0;
+	border-top: 1px solid var(--color-text);
+	font-size: var(--space-5);
+	&:hover, &:focus, &:active {
+		background-color: var(--color-blue-25);
+		cursor: pointer;
+		transition: all 0.3s ease;
+	}
+	&:last-child {
+		border-bottom: 1px solid var(--color-text);
 	}
 }
 /*----------------------------------------
@@ -547,6 +517,15 @@ Impressionen Section
 #impressionenSection {
 	background-color: var(--color-blue-25);
 }
+.impressionenContent {
+	/* use the site grid here so children (gallery and arrows) can be placed
+	   exactly on column boundaries */
+	display: grid;
+	grid-template-columns: repeat(var(--grid-columns), 1fr);
+	grid-template-rows: auto auto; /* headings row, gallery/arrows row */
+	gap: var(--grid-gutter);
+	align-items: center;
+}
 /* Carousel styles */
 .carousel {
 	position: relative;
@@ -554,16 +533,11 @@ Impressionen Section
 	overflow: hidden;
 }
 .gallery {
-    /* make the carousel occupy 6 columns and center within the page grid */
-		display: grid;
-    grid-column: 2 / span 6; /* mobile: start at column 2 for 8-col grid */
-    justify-self: stretch;
-}
-
-@media (min-width: 900px) {
-    .gallery {
-        grid-column: 4 / span 6; /* desktop: center 6 of 12 columns */
-    }
+		/* place the gallery between grid column lines 2 and 8 (start at 2, end at 8)
+			 which results in a 6-column-wide area on an 8-column grid */
+		grid-column: 2 / 8;
+		justify-self: stretch;
+		grid-row: 2; /* place gallery on the second grid row */
 }
 .carouselTrack {
 	display: flex;
@@ -571,7 +545,7 @@ Impressionen Section
 	will-change: transform;
 }
 .carouselSlide {
-	min-width: 100%;
+	width: 100%;
 	flex-shrink: 0;
 }
 .carouselSlide img {
@@ -579,30 +553,12 @@ Impressionen Section
 	height: 300px; /* requested */
 	object-fit: cover;
 	display: block;
-	border-radius: var(--corner-radius-big);
+	border-radius: var(--corner-radius-big);	
 }
 .carouselArrow {
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-	border: none;
-	background: var(--color-blue-100);
-	color: var(--color-text-negative);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	cursor: pointer;
-	font-size: 20px;
-	line-height: 1;
-	z-index: 30;
-}
-.carouselArrow {
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
+	/* arrows are grid children of .impressionenContent and placed on
+	   specific columns (see .carouselArrow.prev/.next). Keep them visually
+	   centered vertically and with no background. */
 	width: 40px;
 	height: 40px;
 	border: none;
@@ -613,26 +569,24 @@ Impressionen Section
 	justify-content: center;
 	cursor: pointer;
 	z-index: 40;
+	align-self: center;
 }
 
-/* place arrows outside the gallery into the outermost page margins */
-.carouselArrow.prev {
-	left: calc(var(--page-margin) * -1 + 8px);
-}
-.carouselArrow.next {
-	right: calc(var(--page-margin) * -1 + 8px);
-}
-
-/* Desktop: move arrows further out to align with outermost grid columns */
-@media (min-width: 900px) {
-	.carouselArrow.prev { left: calc(var(--page-margin) * -1 + 12px); }
-	.carouselArrow.next { right: calc(var(--page-margin) * -1 + 12px); }
-}
-
+/* place arrows into the requested outer columns by default */
+.carouselArrow.prev { grid-column: 1 / 2; justify-self: start; grid-row: 2; }
+.carouselArrow.next { grid-column: 8 / 9; justify-self: end; grid-row: 2; }
 .carouselArrow img {
 	display: block;
 	width: 24px;
 	height: 24px;
+}
+.impressionenContent > .impressionenTitle {
+	grid-column: 1 / -1; /* make the title block span the full width on the first row */
+	grid-row: 1;
+}
+
+.gallery {
+	justify-self: center; /* center the gallery within the 2..8 column area (matches Figma) */
 }
 .carouselDots {
 	display: flex;
@@ -653,11 +607,6 @@ Impressionen Section
 	background: var(--color-blue-100);
 }
 .carouselDots button:hover { background: var(--color-blue-50); }
-
-/* Small responsive tweaks */
-@media (min-width: 900px) {
-	.carouselSlide img { height: 300px; }
-}
 
 /*----------------------------------------
 History Section
@@ -690,10 +639,6 @@ footer {
 	margin-left: calc(var(--page-margin) * -1);
 	margin-right: calc(var(--page-margin) * -1);
 }
-.footerTop a {
-	color: var(--color-text-negative);
-	text-decoration: none;
-}
 .footerBottom {
 	a {
 		color: var(--color-blue-50);
@@ -723,4 +668,108 @@ footer {
 .footerScrollTop {
 	display: flex;
 	justify-content: flex-end;
+}
+
+/*****************************************
+ * TABLET LANDSCAPE *
+ *****************************************/
+@media (min-width: 1024px) {
+	 /*----------------------------------------
+	Spacings
+	----------------------------------------*/
+	:root {
+		--grid-columns: 12;
+		--page-margin: 80px;
+		--grid-gutter: 24px;
+	}
+	/*----------------------------------------
+	Navigation
+	----------------------------------------*/
+	/* Desktop overrides: header logo 2 cols, footer logo 3 cols */
+	.logoLink { grid-column: 1 / span 2; }
+	.headerControls { grid-column: 3 / -1; }
+	.footerLogo { grid-column: span 3; }
+	.footerTop .footerLinks { grid-column: span 9; }
+	/* Desktop wide: replace hamburger with inline menu items */
+	/* hide hamburger button */
+	.menuToggle { 
+		display: none; 
+	}
+	/* show nav as inline list even if it has the hidden attribute */
+	.mainMenu,
+	.mainMenu[hidden] {
+		display: flex !important;
+		position: static;
+		width: auto;
+		background: transparent;
+		box-shadow: none;
+		margin: 0;
+	}
+	.headerControls { 
+		gap: var(--space-2); 
+	}
+	.mainMenu ul {
+		display: flex;
+		gap: var(--space-2); /* 8px */
+		margin: 0;
+		padding: 0;
+		align-items: center;
+	}
+	.mainMenu li { 
+		list-style: none;
+	}
+	.mainMenu a {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: var(--space-2) var(--space-6); /* 8px vertical, 24px horizontal */
+		border-radius: var(--corner-radius-big); /* 24px */
+		background: var(--color-blue-25);
+		color: var(--color-blue-100);
+		font-weight: 500;
+		border: 2px solid transparent;
+		transition: background 150ms ease, color 150ms ease, border-color 150ms ease;
+	}
+	.mainMenu a:hover {
+		background: var(--color-blue-100);
+		color: var(--color-blue-25);
+	}
+	.mainMenu a:focus {
+		background: var(--color-blue-25);
+		color: var(--color-blue-100);
+		border-color: var(--color-blue-100);
+		outline: none;
+	}
+	/* ensure headerControls align right */
+	.headerControls { 
+		justify-content: flex-end; 
+	}
+	/*----------------------------------------
+	Hero Section
+	----------------------------------------*/
+	/* Large desktop: align heroContent to columns 3..9 (6-column width) at >=2024px */
+		#heroSection {
+			grid-template-columns: repeat(var(--grid-columns), 1fr);
+			gap: var(--grid-gutter);
+			align-items: center;
+		}
+		/* make the hero media span the full grid while the content spans columns 3..9 */
+		.heroVideo {
+			grid-column: 1 / -1;
+		}
+		.heroContent {
+			grid-column: 3 / 9;
+		}
+	/*----------------------------------------
+	Impressionen Section
+	----------------------------------------*/
+	/* Small responsive tweaks */
+	.carouselSlide img { 
+		height: 300px; 
+	}
+	/* On larger viewports keep the same column mapping but using the
+	   site's 12-column grid (so 2..8 yields a 6-column area). */
+	.carouselArrow.prev { grid-column: 1 / 2; justify-self: start; }
+	.carouselArrow.next { grid-column: 8 / 9; justify-self: end; }
+	.gallery { grid-column: 2 / 8; }
 }
