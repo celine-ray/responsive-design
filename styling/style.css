@@ -10,7 +10,7 @@ body {
        to the same columns and margins across the site. */
     display: grid;
     grid-template-columns: repeat(var(--grid-columns), 1fr);
-    gap: var(--grid-gutter);
+    /* gap: var(--grid-gutter); */
     padding-left: var(--page-margin);
     padding-right: var(--page-margin);
     box-sizing: border-box;
@@ -61,6 +61,7 @@ body {
 	--grid-columns: 8;
 	--page-margin: 24px; /* horizontal page margin */
 	--grid-gutter: 16px; /* gap between columns */
+	--grid-gutter-desktop: 24px; /* desktop gap override */
 	--gap-default: var(--space-6);
 	/* text styles */
 	--font-size-small: 14px;
@@ -173,9 +174,7 @@ button.scrollTop {
 /*----------------------------------------
 Sections
 ----------------------------------------*/
-section, footer {
-	/* keep vertical spacing, horizontal spacing handled by inner containers
-	   to allow full-bleed backgrounds on sections */
+section {
 	padding: var(--space-11) 0;
 }
 #heroSection {
@@ -260,7 +259,7 @@ body > footer > * {
 .footerContent {
 	display: flex;
 	flex-direction: column; /* stack elements vertically */
-	gap: var(--space-4);
+	gap: var(--space-6);
 	padding-left: var(--page-margin);
 	padding-right: var(--page-margin);
 	width: 100%;
@@ -270,8 +269,10 @@ body > footer > * {
 Navigation
 ----------------------------------------*/
 .logo {
-	width: 169px;
+	width: 100%;
 	height: auto;
+	grid-column-start: 1;
+	grid-column-end: 5;
 }
 /* Header + hamburger menu styles */
 header {
@@ -279,7 +280,7 @@ header {
 	grid-template-columns: repeat(var(--grid-columns), 1fr);
 	align-items: center;
 	gap: var(--space-4);
-	padding: var(--space-4) 0 0 0;
+	padding: var(--space-4) 0;
 	/* make header stick to the top so the menu stays visible while scrolling */
 	position: sticky;
 	top: 0;
@@ -323,7 +324,7 @@ header {
 /* logoLink occupies first 4 columns */
 .logoLink { 
 	grid-column: 1 / span 4; 
-	display: inline-flex; 
+	display: grid; 
 	align-items: center; 
 }
 .hamburger .bar {
@@ -373,15 +374,15 @@ header {
 .mainMenu ul {
 	list-style: none;
 	margin: 0;
-	padding: 0.5rem 0;
+	padding: var(--space-6);
 	border-radius: var(--corner-radius-small);
+	gap: var(--space-4);
 }
 /* .mainMenu li + li {
 	border-top: 1px solid rgba(0,0,0,0.06);
 }*/
 .mainMenu a {
 	display: block;
-	padding: 0.75rem 1rem;
 	color: var(--color-blue-100);
 	border: 2px solid transparent;
 	border-radius: var(--corner-radius-small);
@@ -424,7 +425,7 @@ Hero Section
 	display: grid;
 	grid-template-rows: 1fr 1fr;
 	grid-template-columns: 1fr;
-	gap: var(--space-3);
+	gap: var(--space-7);
 }
 .heroContent {
 	display: grid;
@@ -523,8 +524,11 @@ Impressionen Section
 	display: grid;
 	grid-template-columns: repeat(var(--grid-columns), 1fr);
 	grid-template-rows: auto auto; /* headings row, gallery/arrows row */
-	gap: var(--grid-gutter);
+	/*gap: var(--grid-gutter);*/
 	align-items: center;
+}
+.impressionenTitle {
+	margin-bottom: var(--space-6);
 }
 /* Carousel styles */
 .carousel {
@@ -571,7 +575,6 @@ Impressionen Section
 	z-index: 40;
 	align-self: center;
 }
-
 /* place arrows into the requested outer columns by default */
 .carouselArrow.prev { grid-column: 1 / 2; justify-self: start; grid-row: 2; }
 .carouselArrow.next { grid-column: 8 / 9; justify-self: end; grid-row: 2; }
@@ -584,7 +587,6 @@ Impressionen Section
 	grid-column: 1 / -1; /* make the title block span the full width on the first row */
 	grid-row: 1;
 }
-
 .gallery {
 	justify-self: center; /* center the gallery within the 2..8 column area (matches Figma) */
 }
@@ -606,40 +608,48 @@ Impressionen Section
 .carouselDots button.active {
 	background: var(--color-blue-100);
 }
-.carouselDots button:hover { background: var(--color-blue-50); }
-
+.carouselDots button:hover { 
+	background: var(--color-blue-50);
+}
 /*----------------------------------------
 History Section
 ----------------------------------------*/
+#historySection {
+	display: grid;
+	gap: var(--space-7);
+}
 .historyContent {
 	display: flex;
 	flex-direction: column;
 }
 .historyContent {
-	height: 265px;
-	
+	height: 265px;	
 }
 .historyImg {
 	border-radius: var(--corner-radius-small);
 	overflow: hidden;
 	display: flex;
 	object-fit: cover;
+	width: 100%;
 }
-
 /*----------------------------------------
 Footer
 ----------------------------------------*/
 /* Make footer full-bleed like the history section while keeping inner content aligned to the page margin */
 footer {
-	display: block;
+	display: grid;
 	background-color: var(--color-blue-100);
 	box-sizing: border-box;
 	width: calc(100% + (var(--page-margin) * 2));
 	max-width: 100vw;
 	margin-left: calc(var(--page-margin) * -1);
 	margin-right: calc(var(--page-margin) * -1);
+	gap: var(--space-8);
+	padding: var(--space-8) 0;
 }
 .footerBottom {
+	display: flex;
+	gap: var(--space-7);
 	a {
 		color: var(--color-blue-50);
 	}
@@ -659,11 +669,17 @@ footer {
 .footerTop {
 	display: grid;
 	grid-template-columns: repeat(var(--grid-columns), 1fr);
-	gap: var(--grid-gutter);
+	gap: var(--space-8);
 	align-items: center;
 }
-.footerTop .footerLinks { 
-	grid-column: span 6;
+.footerTop .footerLinks {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-3);
+	grid-column: span 9;
+}
+.footerTopLinks {
+	font-size: var(--font-size-menu-item);
 }
 .footerScrollTop {
 	display: flex;
@@ -674,6 +690,25 @@ footer {
  * TABLET LANDSCAPE *
  *****************************************/
 @media (min-width: 1024px) {
+	/*----------------------------------------
+	Navigation
+	----------------------------------------*/
+	/* Desktop overrides: header logo 2 cols, footer logo 3 cols */
+	.logoLink { 
+		grid-column: 1 / span 2; 
+	}
+	.headerControls { 
+		grid-column: 3 / -1; 
+	}
+	.footerLogo { 
+		grid-column: span 3; 
+	}
+	.footerTop .footerLinks { 
+		grid-column: span 9; 
+	}
+	header {
+		padding: var(--space-6) 0;
+	}
 	 /*----------------------------------------
 	Spacings
 	----------------------------------------*/
@@ -683,13 +718,42 @@ footer {
 		--grid-gutter: 24px;
 	}
 	/*----------------------------------------
+	Hero Section
+	----------------------------------------*/
+	/* Large desktop: align heroContent to columns 3..9 (6-column width) at >=2024px */
+		#heroSection {
+			grid-template-columns: repeat(var(--grid-columns), 1fr);
+			gap: var(--grid-gutter);
+			align-items: center;
+		}
+		/* make the hero media span the full grid while the content spans columns 3..9 */
+		.heroVideo {
+			grid-column: 1 / -1;
+		}
+		.heroContent {
+			grid-column: 3 / 9;
+		}
+	/*----------------------------------------
+	Impressionen Section
+	----------------------------------------*/
+	/* Small responsive tweaks */
+	.carouselSlide img { 
+		height: 300px; 
+	}
+	/* On larger viewports keep the same column mapping but using the
+	   site's 12-column grid (so 2..8 yields a 6-column area). */
+	.carouselArrow.prev { grid-column: 1 / 2; justify-self: start; }
+	.carouselArrow.next { grid-column: 8 / 9; justify-self: end; }
+	.gallery { grid-column: 2 / 8; }
+}
+
+/*****************************************
+ * DESKTOP *
+ *****************************************/
+@media (min-width: 1600px) {
+	/*----------------------------------------
 	Navigation
 	----------------------------------------*/
-	/* Desktop overrides: header logo 2 cols, footer logo 3 cols */
-	.logoLink { grid-column: 1 / span 2; }
-	.headerControls { grid-column: 3 / -1; }
-	.footerLogo { grid-column: span 3; }
-	.footerTop .footerLinks { grid-column: span 9; }
 	/* Desktop wide: replace hamburger with inline menu items */
 	/* hide hamburger button */
 	.menuToggle { 
@@ -722,7 +786,7 @@ footer {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		padding: var(--space-2) var(--space-6); /* 8px vertical, 24px horizontal */
+		padding: var(--space-1) var(--space-6); /* 8px vertical, 24px horizontal */
 		border-radius: var(--corner-radius-big); /* 24px */
 		background: var(--color-blue-25);
 		color: var(--color-blue-100);
@@ -744,32 +808,21 @@ footer {
 	.headerControls { 
 		justify-content: flex-end; 
 	}
-	/*----------------------------------------
-	Hero Section
-	----------------------------------------*/
-	/* Large desktop: align heroContent to columns 3..9 (6-column width) at >=2024px */
-		#heroSection {
-			grid-template-columns: repeat(var(--grid-columns), 1fr);
-			gap: var(--grid-gutter);
-			align-items: center;
-		}
-		/* make the hero media span the full grid while the content spans columns 3..9 */
-		.heroVideo {
-			grid-column: 1 / -1;
-		}
-		.heroContent {
-			grid-column: 3 / 9;
-		}
-	/*----------------------------------------
-	Impressionen Section
-	----------------------------------------*/
-	/* Small responsive tweaks */
-	.carouselSlide img { 
-		height: 300px; 
+	.backgroundNav {
+		background-color: transparent;
 	}
-	/* On larger viewports keep the same column mapping but using the
-	   site's 12-column grid (so 2..8 yields a 6-column area). */
-	.carouselArrow.prev { grid-column: 1 / 2; justify-self: start; }
-	.carouselArrow.next { grid-column: 8 / 9; justify-self: end; }
-	.gallery { grid-column: 2 / 8; }
+
+	/*----------------------------------------
+	Desktop: Cards layout
+	Make the cards container use the site grid and each .card span 3 columns
+	----------------------------------------*/
+	.cardsContainer {
+		/* switch from auto-fit to the site's column grid so cards align to column lines */
+		grid-template-columns: repeat(var(--grid-columns), 1fr);
+		gap: var(--grid-gutter);
+	}
+	.card {
+		/* each card takes 3 columns on very large screens */
+		grid-column: span 3;
+	}
 }
