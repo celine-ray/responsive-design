@@ -7,26 +7,28 @@ General Styles
 * {
 	box-sizing: border-box;
 }
+
 body {
-    margin: 0;
-    /* Use the site-wide grid on the body so header, main and footer align
+	margin: 0;
+	/* Use the site-wide grid on the body so header, main and footer align
        to the same columns and margins across the site. */
-    display: grid;
-    grid-template-columns: repeat(var(--grid-columns), 1fr);
-    gap: var(--grid-gutter);
-    padding-left: var(--page-margin);
-    padding-right: var(--page-margin);
-    min-height: 100vh;
-    /* prevent any child from causing horizontal scroll beyond the viewport */
-    max-width: 100vw;
-    overflow-x: hidden;
+	display: grid;
+	grid-template-columns: repeat(var(--grid-columns), 1fr);
+	gap: var(--grid-gutter);
+	padding-left: var(--page-margin);
+	padding-right: var(--page-margin);
+	min-height: 100vh;
+	/* prevent any child from causing horizontal scroll beyond the viewport */
+	max-width: 100vw;
+	overflow-x: hidden;
 }
+
 :root {
 	/* Color Styles */
-  --color-blue-100: #0023D1;
-  --color-blue-75: #657EFF;
-  --color-blue-50: #9EB5FF;
-  --color-blue-25: #DDE5FF;
+	--color-blue-100: #0023D1;
+	--color-blue-75: #657EFF;
+	--color-blue-50: #9EB5FF;
+	--color-blue-25: #DDE5FF;
 	--color-pink-100: #6E0056;
 	--color-pink-75: #B4008C;
 	--color-pink-50: #F154CE;
@@ -35,9 +37,9 @@ body {
 	--color-red-75: #E81313;
 	--color-red-50: #FF4646;
 	--color-red-25: #FFA7A7;
-  --color-background: #ffffff;
-  --color-text: #171717;
-  --color-text-negative: #ffffff;
+	--color-background: #ffffff;
+	--color-text: #171717;
+	--color-text-negative: #ffffff;
 	/* box sizing and border radius */
 	box-sizing: border-box;
 	--corner-radius-btn: 8px;
@@ -45,88 +47,125 @@ body {
 	--corner-radius-big: 24px;
 	/* spacings */
 	--space-0: 0;
-  --space-1: 0.25rem;  /* 4px */
-  --space-2: 0.5rem;   /* 8px */
-  --space-3: 0.75rem;  /* 12px */
-  --space-4: 1rem;     /* 16px */
-	--space-5: 1.25rem;  /* 20px */
-  --space-6: 1.5rem;   /* 24px */
-  --space-7: 2rem;     /* 32px */
-  --space-8: 3rem;     /* 48px */
-  --space-9: 3.5rem;  /* 56px */
-  --space-10: 4.5rem;  /* 72px */
-  --space-11: 5rem;   /* 80px */
-  --space-12: 7.5rem; /* 120px */
-  --space-13: 10rem;  /* 160px */
+	--space-1: 0.25rem;
+	/* 4px */
+	--space-2: 0.5rem;
+	/* 8px */
+	--space-3: 0.75rem;
+	/* 12px */
+	--space-4: 1rem;
+	/* 16px */
+	--space-5: 1.25rem;
+	/* 20px */
+	--space-6: 1.5rem;
+	/* 24px */
+	--space-7: 2rem;
+	/* 32px */
+	--space-8: 3rem;
+	/* 48px */
+	--space-9: 3.5rem;
+	/* 56px */
+	--space-10: 4.5rem;
+	/* 72px */
+	--space-11: 5rem;
+	/* 80px */
+	--space-12: 7.5rem;
+	/* 120px */
+	--space-13: 10rem;
+	/* 160px */
 	/* Grid system (Figma): mobile 8 cols / margin 24px / gutter 16px
 	 desktop 12 cols / margin 80px / gutter 24px */
 	--grid-columns: 8;
-	--page-margin: 24px; /* horizontal page margin */
-	--grid-gutter: 16px; /* gap between columns */
-	--grid-gutter-desktop: 24px; /* desktop gap override */
+	--page-margin: 24px;
+	/* horizontal page margin */
+	--grid-gutter: 16px;
+	/* gap between columns */
+	--grid-gutter-desktop: 24px;
+	/* desktop gap override */
 	--gap-default: var(--space-6);
 	/* text styles */
 	--font-size-small: 14px;
 	--font-size-base: 16px;
 	--font-size-menu-item: 20px;
+	--font-size-btn-desktop: 20px;
 	--font-size-quote: 24px;
 }
+
 /*----------------------------------------
 Text Styles
 ----------------------------------------*/
-body, p, a {
+body,
+p,
+a {
 	font-family: "bricolage-grotesque", sans-serif;
 	font-weight: 300;
 	font-style: normal;
 }
+
 a {
 	text-decoration: none;
 }
+
 .fontSizeSmall {
 	font-size: var(--font-size-small);
 	font-weight: 600;
 }
+
 .fontSizeBase {
 	font-size: var(--font-size-base);
 }
+
 .fontNegative {
 	color: var(--color-text-negative);
 }
+
 .fontQuote {
 	font-size: var(--font-size-quote);
 	font-variation-settings: "wght" 200;
 }
+
 .fontMenuItem {
 	font-family: "bricolage-grotesque", sans-serif;
 	font-weight: 500;
 	font-style: normal;
 	font-size: var(--font-size-menu-item);
 }
-h1, h2, h3, h4 {
+
+h1,
+h2,
+h3,
+h4 {
 	font-family: "please-vf", sans-serif;
 	font-style: normal;
 	margin: 0;
 }
-h1, h3 {
+
+h1,
+h3 {
 	font-size: var(--space-8);
 	line-height: var(--space-9);
 	font-variation-settings: "wght" 800;
 }
+
 h2 {
 	color: var(--color-red-50);
 	font-variation-settings: "wght" 500;
 }
+
 h4 {
 	font-size: var(--space-7);
 	line-height: 2.5rem;
 	margin: 0;
 }
+
 .titleBlue {
 	color: var(--color-blue-100);
 }
+
 .titlePink {
 	color: var(--color-pink-100);
 }
+
 /*----------------------------------------
 Element Styles
 ----------------------------------------*/
@@ -135,19 +174,28 @@ button {
 	font-weight: 400;
 	font-style: normal;
 	cursor: pointer;
-	&:hover, &:active, &:focus {
-			transition: all 0.3s ease;
+
+	&:hover,
+	&:active,
+	&:focus {
+		transition: all 0.3s ease;
 	}
 }
+
 .buttonDefault {
+	font-size: var(--font-size-small);
 	background-color: var(--color-red-50);
 	border-radius: var(--corner-radius-btn);
 	padding: var(--space-2) var(--space-6);
 	border: none;
-	&:hover, &:active, &:focus {
+
+	&:hover,
+	&:active,
+	&:focus {
 		background-color: var(--color-red-75);
 	}
 }
+
 button.scrollTop {
 	display: flex;
 	align-items: center;
@@ -157,22 +205,29 @@ button.scrollTop {
 	border-radius: var(--corner-radius-big);
 	color: var(--color-text);
 	padding: 0 var(--space-4);
-	&:hover, &:active, &:focus {
+
+	&:hover,
+	&:active,
+	&:focus {
 		transition: all 0.3s ease;
 		background-color: var(--color-blue-50);
 	}
+
 	img {
 		width: 24px;
 	}
 }
+
 .divider {
 	border: 0.5px solid var(--color-blue-25);
 	width: 100%;
 }
+
 .backgroundNav {
 	background-color: var(--color-blue-25);
 	color: var(--color-blue-100);
 }
+
 /*----------------------------------------
 Sections
 ----------------------------------------*/
@@ -194,35 +249,60 @@ section {
 /* Make immediate top-level blocks span full width of the content grid so
    they align with the page margins. Inner elements can use .col-span-* to
    occupy columns. */
-.content > header,
-.content > section,
-.content > footer {
+.content>header,
+.content>section,
+.content>footer {
 	grid-column: 1 / -1;
 }
 /* Make body-level layout blocks span full width as well (header/main/footer)
    so the grid applies site-wide. */
-body > header,
-body > main,
-body > footer {
+body>header,
+body>main,
+body>footer {
 	grid-column: 1 / -1;
 }
 /* Utility: full width inside the grid */
-.full { grid-column: 1 / -1; }
+.full {
+	grid-column: 1 / -1;
+}
 /* Column span helpers (1..12). They will work on both 8-col and 12-col
    setups; if a span > available columns it will simply occupy remaining space. */
-.col-span-1  { grid-column: span 1; }
-.col-span-2  { grid-column: span 2; }
-.col-span-3  { grid-column: span 3; }
-.col-span-4  { grid-column: span 4; }
-.col-span-5  { grid-column: span 5; }
-.col-span-6  { grid-column: span 6; }
-.col-span-7  { grid-column: span 7; }
-.col-span-8  { grid-column: span 8; }
-.col-span-9  { grid-column: span 9; }
-.col-span-10 { grid-column: span 10; }
-.col-span-11 { grid-column: span 11; }
-.col-span-12 { grid-column: span 12; }
-
+.col-span-1 {
+	grid-column: span 1;
+}
+.col-span-2 {
+	grid-column: span 2;
+}
+.col-span-3 {
+	grid-column: span 3;
+}
+.col-span-4 {
+	grid-column: span 4;
+}
+.col-span-5 {
+	grid-column: span 5;
+}
+.col-span-6 {
+	grid-column: span 6;
+}
+.col-span-7 {
+	grid-column: span 7;
+}
+.col-span-8 {
+	grid-column: span 8;
+}
+.col-span-9 {
+	grid-column: span 9;
+}
+.col-span-10 {
+	grid-column: span 10;
+}
+.col-span-11 {
+	grid-column: span 11;
+}
+.col-span-12 {
+	grid-column: span 12;
+}
 /* Helper to center grid content with an inner container width if needed */
 .container-inner {
 	width: 100%;
@@ -242,31 +322,30 @@ body > footer {
 	background-color: var(--color-pink-25);
 }
 /* Align immediate section children to the page margin so content stays within the grid while section backgrounds can be full-bleed. */
-.content > section > *,
-.content > footer > *,
-body > section > *,
-body > footer > * {
+.content>section>*,
+.content>footer>*,
+body>section>*,
+body>footer>* {
 	padding-left: var(--page-margin);
 	padding-right: var(--page-margin);
 	box-sizing: border-box;
 }
 /* Exceptions: certain sections should not receive the page margin (they handle their own inner spacing or are full-bleed). */
-#heroSection > *,
-#attraktionenSection > *,
-#quoteSection > * {
+#heroSection>*,
+#attraktionenSection>*,
+#quoteSection>* {
 	padding-left: 0;
 	padding-right: 0;
 }
-/* Make footer content participate in the grid */
 .footerContent {
-	display: flex;
-	flex-direction: column; /* stack elements vertically */
+	display: grid;
+	/* flex-direction: column; */
 	gap: var(--space-6);
-	padding-left: var(--page-margin);
-	padding-right: var(--page-margin);
+	padding: 0;
 	width: 100%;
-	max-width: 100vw; /* never exceed viewport width */
+	max-width: 100vw;
 }
+
 /*----------------------------------------
 Navigation
 ----------------------------------------*/
@@ -308,13 +387,16 @@ header {
 	font-size: 14px;
 	font-weight: 600;
 }
+
 .hamburger {
 	display: inline-flex;
- 	flex-direction: column;
- 	justify-content: space-between;
- 	width: 18px;
- 	height: 12px; /* +2px so gaps increase by 1px */
+	flex-direction: column;
+	justify-content: space-between;
+	width: 18px;
+	height: 12px;
+	/* +2px so gaps increase by 1px */
 }
+
 /* headerControls placed at the end of the header grid */
 .headerControls {
 	grid-column: 5 / -1;
@@ -323,22 +405,26 @@ header {
 	justify-content: flex-end;
 	gap: var(--grid-gutter);
 }
+
 /* logoLink occupies first 4 columns */
-.logoLink { 
-	grid-column: 1 / span 4; 
-	display: grid; 
-	align-items: center; 
+.logoLink {
+	grid-column: 1 / span 4;
+	display: grid;
+	align-items: center;
 }
+
 .hamburger .bar {
 	display: block;
 	height: 2px;
 	background: var(--color-text);
 	border-radius: 2px;
 }
+
 /* Animate hamburger -> X when menu is open (aria-expanded=true) */
 .hamburger {
 	position: relative;
 }
+
 .hamburger .bar {
 	position: absolute;
 	left: 0;
@@ -347,22 +433,34 @@ header {
 	transition: transform 200ms ease, top 200ms ease, opacity 200ms ease;
 	transform-origin: center;
 }
-.hamburger .bar:nth-child(1) {top: 0;}
-.hamburger .bar:nth-child(2) {top: 5px;}
-.hamburger .bar:nth-child(3) {top: 10px;}
+
+.hamburger .bar:nth-child(1) {
+	top: 0;
+}
+
+.hamburger .bar:nth-child(2) {
+	top: 5px;
+}
+
+.hamburger .bar:nth-child(3) {
+	top: 10px;
+}
 
 .menuToggle[aria-expanded="true"] .hamburger .bar:nth-child(1) {
 	top: 5px;
 	transform: rotate(45deg);
 }
+
 .menuToggle[aria-expanded="true"] .hamburger .bar:nth-child(2) {
 	opacity: 0;
 	transform: scaleX(0);
 }
+
 .menuToggle[aria-expanded="true"] .hamburger .bar:nth-child(3) {
 	top: 5px;
 	transform: rotate(-45deg);
 }
+
 .mainMenu {
 	position: absolute;
 	top: 100%;
@@ -370,9 +468,11 @@ header {
 	width: 100%;
 	z-index: 40;
 }
+
 .mainMenu[hidden] {
 	display: none;
 }
+
 .mainMenu ul {
 	list-style: none;
 	margin: 0;
@@ -380,6 +480,7 @@ header {
 	border-radius: var(--corner-radius-small);
 	gap: var(--space-4);
 }
+
 /* .mainMenu li + li {
 	border-top: 1px solid rgba(0,0,0,0.06);
 }*/
@@ -389,9 +490,11 @@ header {
 	border: 2px solid transparent;
 	border-radius: var(--corner-radius-small);
 	transition: background 150ms ease, color 150ms ease, border-color 150ms ease;
+
 	&:hover {
 		color: var(--color-blue-50);
 	}
+
 	&:focus {
 		background: var(--color-blue-25);
 		color: var(--color-blue-100);
@@ -399,6 +502,7 @@ header {
 		outline: none;
 	}
 }
+
 /* Hero video styles */
 #heroSection {
 	display: grid;
@@ -406,6 +510,7 @@ header {
 	gap: var(--gap-default);
 	align-items: center;
 }
+
 .heroVideo {
 	width: 100%;
 	height: 420px;
@@ -413,6 +518,7 @@ header {
 	overflow: hidden;
 	border-radius: 6px;
 }
+
 .heroBgVideo {
 	width: 100%;
 	height: 100%;
@@ -420,6 +526,7 @@ header {
 	object-fit: cover;
 	border-radius: var(--corner-radius-small);
 }
+
 /*----------------------------------------
 Hero Section
 ----------------------------------------*/
@@ -429,10 +536,12 @@ Hero Section
 	grid-template-columns: 1fr;
 	gap: var(--space-7);
 }
+
 .heroContent {
 	display: grid;
 	gap: var(--space-4);
 }
+
 /*----------------------------------------
 Themenbereiche Section
 ----------------------------------------*/
@@ -441,15 +550,18 @@ Themenbereiche Section
 	justify-content: center;
 	margin-top: var(--space-2);
 }
+
 .themenbereicheContent {
 	display: grid;
 	gap: var(--space-7);
 }
+
 .cardsContainer {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 	gap: var(--gap-default);
 }
+
 .card {
 	display: flex;
 	flex-direction: column;
@@ -458,16 +570,19 @@ Themenbereiche Section
 	border-radius: var(--corner-radius-small);
 	overflow: hidden;
 }
+
 .cardImgContainer {
 	margin: 0;
 	padding: 0;
 	/* remove inline-gap that can appear with images */
 	line-height: 0;
 }
+
 .cardImg,
 .cardContent {
 	margin: 0;
 }
+
 .cardImg {
 	display: block;
 	width: 100%;
@@ -475,14 +590,17 @@ Themenbereiche Section
 	object-fit: cover;
 	border-radius: var(--corner-radius-small) var(--corner-radius-small) 0 0;
 }
+
 .cardContent {
 	padding: var(--space-7);
 	background-color: var(--color-blue-100);
 	border-radius: 0 0 var(--corner-radius-small) var(--corner-radius-small);
+
 	h4 {
 		color: var(--color-pink-50);
 	}
 }
+
 /*----------------------------------------
 Alle Attraktionen Section
 ----------------------------------------*/
@@ -493,77 +611,96 @@ Alle Attraktionen Section
 	grid-template-columns: repeat(var(--grid-columns), 1fr);
 	grid-auto-rows: auto;
 }
+
 ul {
 	padding: 0;
 	display: grid;
 }
+
 .attraktionenContent {
 	display: grid;
 	grid-column: 2 / 8;
 	gap: var(--space-7);
 }
+
 .listItem {
 	color: var(--color-text);
 	list-style-type: none;
 	padding: var(--space-4) 0;
 	border-top: 1px solid var(--color-text);
 	font-size: var(--space-5);
-	&:hover, &:focus, &:active {
+
+	&:hover,
+	&:focus,
+	&:active {
 		background-color: var(--color-blue-25);
 		cursor: pointer;
 		transition: all 0.3s ease;
 	}
+
 	&:last-child {
 		border-bottom: 1px solid var(--color-text);
 	}
 }
+
 /*----------------------------------------
 Impressionen Section
 ----------------------------------------*/
 #impressionenSection {
 	background-color: var(--color-blue-25);
 }
+
 .impressionenContent {
 	/* use the site grid here so children (gallery and arrows) can be placed
 	   exactly on column boundaries */
 	display: grid;
 	grid-template-columns: repeat(var(--grid-columns), 1fr);
-	grid-template-rows: auto auto; /* headings row, gallery/arrows row */
+	grid-template-rows: auto auto;
+	/* headings row, gallery/arrows row */
 	/*gap: var(--grid-gutter);*/
 	align-items: center;
 }
+
 .impressionenTitle {
 	margin-bottom: var(--space-6);
 }
+
 /* Carousel styles */
 .carousel {
 	position: relative;
 	border-radius: var(--corner-radius-small);
 	overflow: hidden;
 }
+
 .gallery {
 	/* place the gallery between grid column lines 2 and 8 (start at 2, end at 8)
 			which results in a 6-column-wide area on an 8-column grid */
 	grid-column: 2 / 8;
 	justify-self: stretch;
-	grid-row: 2; /* place gallery on the second grid row */
+	grid-row: 2;
+	/* place gallery on the second grid row */
 }
+
 .carouselTrack {
 	display: flex;
 	transition: transform 0.4s ease-in-out;
 	will-change: transform;
 }
+
 .carouselSlide {
 	width: 100%;
 	flex-shrink: 0;
 }
+
 .carouselSlide img {
 	width: 100%;
-	height: 300px; /* requested */
+	height: 300px;
+	/* requested */
 	object-fit: cover;
 	display: block;
-	border-radius: var(--corner-radius-big);	
+	border-radius: var(--corner-radius-big);
 }
+
 .carouselArrow {
 	/* arrows are grid children of .impressionenContent and placed on
 	   specific columns (see .carouselArrow.prev/.next). Keep them visually
@@ -571,7 +708,8 @@ Impressionen Section
 	width: 40px;
 	height: 40px;
 	border: none;
-	background: transparent; /* no background, per request */
+	background: transparent;
+	/* no background, per request */
 	padding: 0;
 	display: inline-flex;
 	align-items: center;
@@ -580,21 +718,37 @@ Impressionen Section
 	z-index: 40;
 	align-self: center;
 }
+
 /* place arrows into the requested outer columns by default */
-.carouselArrow.prev { grid-column: 1 / 2; justify-self: start; grid-row: 2; }
-.carouselArrow.next { grid-column: 8 / 9; justify-self: end; grid-row: 2; }
+.carouselArrow.prev {
+	grid-column: 1 / 2;
+	justify-self: start;
+	grid-row: 2;
+}
+
+.carouselArrow.next {
+	grid-column: 8 / 9;
+	justify-self: end;
+	grid-row: 2;
+}
+
 .carouselArrow img {
 	display: block;
 	width: 24px;
 	height: 24px;
 }
-.impressionenContent > .impressionenTitle {
-	grid-column: 1 / -1; /* make the title block span the full width on the first row */
+
+.impressionenContent>.impressionenTitle {
+	grid-column: 1 / -1;
+	/* make the title block span the full width on the first row */
 	grid-row: 1;
 }
+
 .gallery {
-	justify-self: center; /* center the gallery within the 2..8 column area (matches Figma) */
+	justify-self: center;
+	/* center the gallery within the 2..8 column area (matches Figma) */
 }
+
 .carouselDots {
 	display: flex;
 	gap: 0.5rem;
@@ -602,6 +756,7 @@ Impressionen Section
 	align-items: center;
 	padding: var(--space-5) 0 0 0;
 }
+
 .carouselDots button {
 	width: 16px;
 	height: 16px;
@@ -610,25 +765,28 @@ Impressionen Section
 	background: var(--color-blue-50);
 	cursor: pointer;
 }
+
 .carouselDots button.active {
 	background: var(--color-blue-100);
 }
-.carouselDots button:hover { 
+
+.carouselDots button:hover {
 	background: var(--color-blue-50);
 }
+
 /*----------------------------------------
-Geschichte Section
+History Section
 ----------------------------------------*/
 #historySection {
 	display: grid;
 	gap: var(--space-7);
 }
-.historyContent {
+.historyImgContainer {
 	display: flex;
 	flex-direction: column;
 }
-.historyContent {
-	height: 265px;	
+.historyImgContainer {
+	height: 265px;
 }
 .historyImg {
 	border-radius: var(--corner-radius-small);
@@ -642,15 +800,19 @@ Footer
 ----------------------------------------*/
 /* Make footer full-bleed like the history section while keeping inner content aligned to the page margin */
 footer {
-	display: grid;
+	display: flex;
+	flex-direction: column;
+	gap: var(--grid-gutter);
+	padding: var(--space-8) var(--page-margin);
+	position: relative;
 	background-color: var(--color-blue-100);
 	box-sizing: border-box;
 	width: calc(100% + (var(--page-margin) * 2));
 	max-width: 100vw;
 	margin-left: calc(var(--page-margin) * -1);
 	margin-right: calc(var(--page-margin) * -1);
-	gap: var(--space-8);
-	padding: var(--space-8) 0;
+	gap: 24px;
+	/* padding: var(--space-8) 0; */
 }
 .footerBottom {
 	display: flex;
@@ -681,7 +843,7 @@ footer {
 	display: flex;
 	flex-direction: column;
 	gap: var(--space-3);
-	grid-column: span 9;
+	grid-column: span 8;
 }
 .footerTopLinks {
 	font-size: var(--font-size-menu-item);
@@ -699,23 +861,23 @@ footer {
 	Navigation
 	----------------------------------------*/
 	/* Desktop overrides: header logo 2 cols, footer logo 3 cols */
-	.logoLink { 
-		grid-column: 1 / span 2; 
+	.logoLink {
+		grid-column: 1 / span 2;
 	}
-	.headerControls { 
+	.headerControls {
 		grid-column: 3 / -1;
 		gap: var(--grid-gutter-desktop);
 	}
-	.footerLogo { 
-		grid-column: span 3; 
+	.footerLogo {
+		grid-column: span 3;
 	}
-	.footerTop .footerLinks { 
-		grid-column: span 9; 
+	.footerTop .footerLinks {
+		grid-column: span 5;
 	}
 	header {
 		padding: var(--space-6) 0;
 	}
-	 /*----------------------------------------
+	/*----------------------------------------
 	Spacings
 	----------------------------------------*/
 	:root {
@@ -748,23 +910,26 @@ footer {
 	/*----------------------------------------
 	Impressionen Section
 	----------------------------------------*/
-	.carouselSlide img { 
-		height: 500px; 
+	.carouselSlide img {
+		height: 500px;
 	}
-	.carouselArrow.prev { 
-		grid-column: 2 / 3; justify-self: start; 
+	.carouselArrow.prev {
+		grid-column: 2 / 3;
+		justify-self: start;
 	}
-	.carouselArrow.next { 
-		grid-column: 11 / 12; justify-self: end; 
+	.carouselArrow.next {
+		grid-column: 11 / 12;
+		justify-self: end;
 	}
-	.gallery, .impressionenContent > .impressionenTitle { 
-		grid-column: 3 / 11; 
+	.gallery,
+	.impressionenContent>.impressionenTitle {
+		grid-column: 3 / 11;
 	}
 	.carouselDots {
 		padding: var(--space-7) 0 0 0;
 	}
 	/*----------------------------------------
-	Widmung Section
+	Quote Section
 	----------------------------------------*/
 	#quoteSection {
 		display: grid;
@@ -774,6 +939,45 @@ footer {
 	.quoteContent {
 		grid-column: 4 / 10;
 	}
+	/*----------------------------------------
+	History Section
+	----------------------------------------*/
+	.historyContainer {
+		display: grid;
+		grid-template-columns: repeat(var(--grid-columns), 1fr);
+		gap: var(--space-11);
+	}
+	.historyImgContainer {
+		grid-column: 1 / 7;
+		height: 100%;
+		max-height: 600px;
+	}
+	.historyText {
+		grid-column: 7 / 13;
+	}
+	/*----------------------------------------
+	Footer
+	----------------------------------------*/
+	/* Make footer full-bleed like the history section while keeping inner content aligned to the page margin */
+	footer {
+		display: grid;
+		grid-template-columns: repeat(var(--grid-columns), 1fr);
+		grid-template-rows: auto;
+	}
+	.footerContent {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-column: 3 / 11;
+		padding: var(--page-margin) 0;
+	}
+	.footerTop {
+		grid-template-columns: repeat(8, 1fr);
+	}
+	.footerScrollTop {
+		position: absolute;
+		right: 0px;
+		bottom: var(--page-margin);
+	}
 }
 
 /*****************************************
@@ -781,13 +985,21 @@ footer {
  *****************************************/
 @media (min-width: 1600px) {
 	/*----------------------------------------
+	Element Styles
+	----------------------------------------*/
+	.buttonDefault {
+		font-size: var(--font-size-btn-desktop);
+	}
+
+	/*----------------------------------------
 	Navigation
 	----------------------------------------*/
 	/* Desktop wide: replace hamburger with inline menu items */
 	/* hide hamburger button */
-	.menuToggle { 
-		display: none; 
+	.menuToggle {
+		display: none;
 	}
+
 	/* show nav as inline list even if it has the hidden attribute */
 	.mainMenu,
 	.mainMenu[hidden] {
@@ -805,15 +1017,17 @@ footer {
 		padding: 0;
 		align-items: center;
 	}
-	.mainMenu li { 
+	.mainMenu li {
 		list-style: none;
 	}
 	.mainMenu a {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		padding: var(--space-1) var(--space-6); /* 8px vertical, 24px horizontal */
-		border-radius: var(--corner-radius-big); /* 24px */
+		padding: var(--space-1) var(--space-6);
+		/* 8px vertical, 24px horizontal */
+		border-radius: var(--corner-radius-big);
+		/* 24px */
 		background: var(--color-blue-25);
 		color: var(--color-blue-100);
 		font-weight: 500;
@@ -831,8 +1045,8 @@ footer {
 		outline: none;
 	}
 	/* ensure headerControls align right */
-	.headerControls { 
-		justify-content: flex-end; 
+	.headerControls {
+		justify-content: flex-end;
 	}
 	.backgroundNav {
 		background-color: transparent;
@@ -853,11 +1067,11 @@ footer {
 	/*----------------------------------------
 	Impressionen Section
 	----------------------------------------*/
-	.carouselSlide img { 
-		height: 700px; 
+	.carouselSlide img {
+		height: 700px;
 	}
 	/*----------------------------------------
-	Widmung Section
+	Quote Section
 	----------------------------------------*/
 	.quoteContent {
 		grid-column: 5 / 9;
