@@ -14,7 +14,7 @@ body {
        to the same columns and margins across the site. */
 	display: grid;
 	grid-template-columns: repeat(var(--grid-columns), 1fr);
-	gap: var(--grid-gutter);
+	/* gap: var(--grid-gutter); */
 	padding-left: var(--page-margin);
 	padding-right: var(--page-margin);
 	min-height: 100vh;
@@ -83,6 +83,8 @@ body {
 	--grid-gutter-desktop: 24px;
 	/* desktop gap override */
 	--gap-default: var(--space-6);
+	/* footer gap */
+	--gap-footer: 40px;
 	/* text styles */
 	--font-size-small: 14px;
 	--font-size-base: 16px;
@@ -384,19 +386,16 @@ header {
 	outline-offset: 2px;
 }
 .menuLabel {
-	font-size: 14px;
+	font-size: var(--font-size-small);
 	font-weight: 600;
 }
-
 .hamburger {
 	display: inline-flex;
 	flex-direction: column;
 	justify-content: space-between;
 	width: 18px;
 	height: 12px;
-	/* +2px so gaps increase by 1px */
 }
-
 /* headerControls placed at the end of the header grid */
 .headerControls {
 	grid-column: 5 / -1;
@@ -405,14 +404,12 @@ header {
 	justify-content: flex-end;
 	gap: var(--grid-gutter);
 }
-
 /* logoLink occupies first 4 columns */
 .logoLink {
 	grid-column: 1 / span 4;
 	display: grid;
 	align-items: center;
 }
-
 .hamburger .bar {
 	display: block;
 	height: 2px;
@@ -595,9 +592,12 @@ Themenbereiche Section
 	padding: var(--space-7);
 	background-color: var(--color-blue-100);
 	border-radius: 0 0 var(--corner-radius-small) var(--corner-radius-small);
-
+	height: 100%;
 	h4 {
 		color: var(--color-pink-50);
+	}
+	p {
+		margin-bottom: 0;
 	}
 }
 
@@ -781,6 +781,10 @@ History Section
 	display: grid;
 	gap: var(--space-7);
 }
+.historyContainer {
+	display: grid;
+	gap: var(--space-7);
+}
 .historyImgContainer {
 	display: flex;
 	flex-direction: column;
@@ -830,20 +834,22 @@ footer {
 	display: block;
 	max-width: 100%;
 	box-sizing: border-box;
-	/* default span: half the grid */
 	grid-column: span 6;
 }
 .footerTop {
 	display: grid;
 	grid-template-columns: repeat(var(--grid-columns), 1fr);
 	gap: var(--space-8);
-	align-items: center;
+	align-items: flex-start;
 }
-.footerTop .footerLinks {
+.footerLinksContainer{
 	display: flex;
 	flex-direction: column;
+	gap: var(--space-4);
+}
+.footerLinks {
 	gap: var(--space-3);
-	grid-column: span 8;
+	grid-column: span 5;
 }
 .footerTopLinks {
 	font-size: var(--font-size-menu-item);
@@ -854,25 +860,46 @@ footer {
 }
 
 /*****************************************
+ * TABLET PORTRAIT *
+ *****************************************/
+@media (min-width: 768px) {
+	/*----------------------------------------
+	Hero Section
+	----------------------------------------*/
+	.heroVideo {
+		height: 720px;
+	}
+	/*----------------------------------------
+	History Section
+	----------------------------------------*/
+	.historyImgContainer {
+		height: 400px;
+	}
+	/*----------------------------------------
+	Footer
+	----------------------------------------*/
+	.footerLogo {
+		grid-column: span 3;
+	}
+	.footerLinks {
+		grid-column: 5 / 9;
+		display: flex;
+		justify-self: flex-end;
+	}
+}
+/*****************************************
  * TABLET LANDSCAPE *
  *****************************************/
 @media (min-width: 1024px) {
 	/*----------------------------------------
 	Navigation
 	----------------------------------------*/
-	/* Desktop overrides: header logo 2 cols, footer logo 3 cols */
 	.logoLink {
 		grid-column: 1 / span 2;
 	}
 	.headerControls {
 		grid-column: 3 / -1;
 		gap: var(--grid-gutter-desktop);
-	}
-	.footerLogo {
-		grid-column: span 3;
-	}
-	.footerTop .footerLinks {
-		grid-column: span 5;
 	}
 	header {
 		padding: var(--space-6) 0;
@@ -964,11 +991,15 @@ footer {
 		grid-template-columns: repeat(var(--grid-columns), 1fr);
 		grid-template-rows: auto;
 	}
+	.footerLogo {
+		grid-column: span 3;
+	}
 	.footerContent {
 		display: grid;
 		grid-template-columns: 1fr;
 		grid-column: 3 / 11;
 		padding: var(--page-margin) 0;
+		gap: var(--gap-footer);
 	}
 	.footerTop {
 		grid-template-columns: repeat(8, 1fr);
@@ -990,7 +1021,6 @@ footer {
 	.buttonDefault {
 		font-size: var(--font-size-btn-desktop);
 	}
-
 	/*----------------------------------------
 	Navigation
 	----------------------------------------*/
