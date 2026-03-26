@@ -513,7 +513,7 @@ header {
   margin: 0;
   padding: var(--space-6);
   border-radius: var(--corner-radius-small);
-	border: 2px solid var(--color-background);
+  border: 2px solid var(--color-background);
   gap: var(--space-4);
 }
 
@@ -1216,7 +1216,7 @@ footer {
     margin: 0;
     padding: 0;
     align-items: center;
-		border: none;
+    border: none;
   }
   .mainMenu li {
     list-style: none;
