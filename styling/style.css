@@ -190,6 +190,10 @@ button {
   padding: var(--space-2) var(--space-6);
   border: none;
 
+	&:hover {
+		animation: jiggle 0.4s ease-in-out;
+	}
+
   &:hover,
   &:active {
     background-color: var(--color-red-75);
@@ -198,6 +202,21 @@ button {
 		outline: none;
 		border: 3px solid var(--color-red-100);
 	}
+}
+
+@keyframes jiggle {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0);
+  }
+
+  25% {
+    transform: translateX(-5px) rotate(-5deg);
+  }
+
+  75% {
+    transform: translateX(5px) rotate(5deg);
+  }
 }
 
 .heroContent a, .themenbereicheBtn a {
@@ -565,6 +584,42 @@ Themenbereiche Section
 .themenbereicheContent {
   display: grid;
   gap: var(--space-7);
+}
+
+.card {
+  position: relative;
+  /* start hidden/offscreen; animation applied when parent gets .in-view */
+  top: 100px;
+  opacity: 0;
+}
+.card:first-child {
+  animation-delay: .5s;
+}
+.card:nth-child(2) {
+  animation-delay: 1s;
+}
+.card:nth-child(3) {
+  animation-delay: 1.5s;
+}
+.card:nth-child(4) {
+  animation-delay: 2s;
+}
+@keyframes slide-and-fade-in {
+  0% {
+    top: 100px;
+    opacity: 0;
+  }
+
+  100% {
+    top: 0px;
+    opacity: 1.0;
+  }
+}
+
+/* apply animation only when the themenbereiche section becomes visible */
+.themenbereicheContent.in-view .card {
+  animation: .5s ease 0s slide-and-fade-in;
+  animation-fill-mode: forwards;
 }
 
 .cardsContainer {
@@ -976,6 +1031,9 @@ footer {
 		padding-left: var(--space-2);
 		padding-right: var(--space-2);
 	}
+	section {
+		padding: var(--space-13) 0;
+	}
   /*----------------------------------------
 	Navigation
 	----------------------------------------*/
@@ -995,7 +1053,7 @@ footer {
   :root {
     --grid-columns: 12;
     --page-margin: 80px;
-    --grid-gutter: 24px;
+    --grid-gutter: 0 24px;
   }
   /*----------------------------------------
 	Hero Section
@@ -1005,6 +1063,7 @@ footer {
     grid-template-columns: repeat(var(--grid-columns), 1fr);
     align-items: center;
 		gap: var(--space-10);
+		padding-bottom: var(--space-13);
   }
   /* make the hero media span the full grid while the content spans columns 3..9 */
   .heroVideo {
@@ -1014,6 +1073,12 @@ footer {
   .heroContent {
     grid-column: 3 / 9;
   }
+	/*----------------------------------------
+	Themenbereiche Section
+	----------------------------------------*/
+	.themenbereicheContent {
+		gap: var(--space-9);
+	}
   /*----------------------------------------
 	Alle Attraktionen Section
 	----------------------------------------*/
@@ -1202,10 +1267,4 @@ footer {
   .quoteContent {
     grid-column: 5 / 9;
   }
-	/*----------------------------------------
-	History Section
-	----------------------------------------*/
-	section#historySection {
-		padding: var(--space-13) 0;
-	}
 }

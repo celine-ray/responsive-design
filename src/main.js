@@ -19,6 +19,38 @@
     });
 })();
 
+// Observe the themenbereiche section and add .in-view when it scrolls into view
+(function () {
+    const section = document.getElementById('themenbereicheSection');
+    if (!section) return;
+    const target = section.querySelector('.themenbereicheContent') || section;
+    const cards = Array.from(target.querySelectorAll('.card'));
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // set staggered delays (0.5s between each) and add class to trigger animation
+                cards.forEach((c, i) => {
+                    c.style.animationDelay = `${i * 0.25}s`;
+                });
+                target.classList.add('in-view');
+            } else {
+                // remove class so animation can play again on re-entry
+                target.classList.remove('in-view');
+                // clear inline delays to reset
+                cards.forEach((c) => {
+                    c.style.animationDelay = '';
+                    // also reset to initial hidden state if animation-fill-mode kept them visible
+                    c.style.top = '';
+                    c.style.opacity = '';
+                });
+            }
+        });
+    }, { threshold: 0.2 });
+
+    observer.observe(section);
+})();
+
 // Simple carousel for .gallery.carousel
 (function () {
     const slider = document.querySelector(".gallery.carousel");
