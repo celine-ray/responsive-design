@@ -31,7 +31,7 @@
             if (entry.isIntersecting) {
                 // set staggered delays (0.5s between each) and add class to trigger animation
                 cards.forEach((c, i) => {
-                    c.style.animationDelay = `${i * 0.25}s`;
+                    c.style.animationDelay = `${i * 0.2}s`;
                 });
                 target.classList.add('in-view');
             } else {
