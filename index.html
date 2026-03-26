@@ -7,13 +7,14 @@
 				<link rel="stylesheet" href="/styling/style.css" />
 				<link rel="stylesheet" href="https://use.typekit.net/wqn8nkm.css">
 				<link rel="stylesheet" href="https://use.typekit.net/wqn8nkm.css">
+				<script src="/src/main.js" defer></script>
 		</head>
 		<body>
 			<header>
 					<a class="logoLink col-span-4" href="#"><img class="logo" src="/assets/img/disney-hollywood-studios-logo.png" alt="Logo Disney’s Hollywood Studios" title="Logo Disney’s Hollywood Studios"></a>
 					<div class="headerControls" >
 						<!-- Hamburger menu button -->
-						<button id="menuToggle" class="menuToggle" aria-controls="mainMenu" aria-expanded="false">
+						<button id="menuToggle" class="menuToggle" aria-controls="mainMenu" aria-expanded="false" aria-label="Hauptmenü ein- und ausblenden">
 							<span class="menuLabel">Menü</span>
 							<span class="hamburger" aria-hidden="true">
 								<span class="bar"></span>
@@ -53,7 +54,7 @@
 								<div class="hero-text-container">
 									<p class="fontSizeBase">Disney's Hollywood Studios ist ein Themenpark im Walt Disney World Resort in Bay Lake, Florida, in der Nähe von Orlando. Er wird von der Walt Disney Company durch deren Experiences-Sparte betrieben. </p>
 								</div>
-								<a href="#historySection"><button class="buttonDefault fontNegative">Jetzt mehr erfahren</button></a>
+								<a href="#historySection"><button class="buttonDefault fontNegative" aria-label="Jetzt mehr erfahren">Jetzt mehr erfahren</button></a>
 							</div>
 						</section>
 						<!-- Themenbereiche -->
@@ -93,7 +94,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="themenbereicheBtn"><a href="#attraktionenSection"><button class="buttonDefault fontNegative">Alle Attraktionen erkunden</button></a></div>
+								<div class="themenbereicheBtn"><a href="#attraktionenSection"><button class="buttonDefault fontNegative" aria-label="Alle Attraktionen erkunden">Alle Attraktionen erkunden</button></a></div>
 							</div>
 						</section>
 						<!-- Alle Attraktionen -->
@@ -135,10 +136,40 @@
 								</div>
 								<!-- Carousel arrows placed outside of .gallery so they sit in the outer columns -->
 								<button class="carouselArrow prev" aria-label="Vorheriges Bild">
-									<img src="/assets/img/arrow-left.svg" alt="Pfeil links" width="24" height="24"/>
+									<svg id="arrowPrev" data-name="arrowPrev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27.96 27.41">
+										<defs>
+											<style>
+												.cls-1 {
+													fill: none;
+													stroke: #0023d1;
+													stroke-linecap: round;
+													stroke-linejoin: round;
+													stroke-width: 4px;
+												}
+											</style>
+										</defs>
+										<line class="cls-1" x1="2" y1="13.7" x2="25.96" y2="13.7"/>
+										<line class="cls-1" x1="2" y1="13.7" x2="13.7" y2="2"/>
+										<line class="cls-1" x1="2" y1="13.7" x2="13.7" y2="25.41"/>
+									</svg>
 								</button>
 								<button class="carouselArrow next" aria-label="Nächstes Bild">
-									<img src="/assets/img/arrow-right.svg" alt="Pfeil rechts" width="24" height="24"/>
+									<svg id="arrowNext" data-name="arrowNext" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27.96 27.41">
+										<defs>
+											<style>
+												.cls-1 {
+													fill: none;
+													stroke: #0023d1;
+													stroke-linecap: round;
+													stroke-linejoin: round;
+													stroke-width: 4px;
+												}
+											</style>
+										</defs>
+										<line class="cls-1" x1="25.96" y1="13.7" x2="2" y2="13.7"/>
+										<line class="cls-1" x1="25.96" y1="13.7" x2="14.25" y2="2"/>
+										<line class="cls-1" x1="25.96" y1="13.7" x2="14.25" y2="25.41"/>
+									</svg>
 								</button>
 						</section>
 						<!-- Widmung -->
@@ -195,86 +226,12 @@
 						</div>
 					</div>
 					<div class="footerScrollTop">
-						<button class="scrollTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+						<button class="scrollTop" aria-label="Nach oben scrollen" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
 							<p class="fontSizeSmall">Scroll top</p>
 							<img class="arrowTopImg" src="/assets/img/arrow-top.svg" alt="Pfeil nach oben" title="Pfeil nach oben">
 						</button>
 					</div>
 				</footer>
-
-				<script>
-					(function () {
-						const btn = document.getElementById('menuToggle');
-						const menu = document.getElementById('mainMenu');
-						if (!btn || !menu) return;
-
-						btn.addEventListener('click', function () {
-							const expanded = btn.getAttribute('aria-expanded') === 'true';
-							btn.setAttribute('aria-expanded', String(!expanded));
-							menu.hidden = expanded; // show when it was closed
-						});
-
-						// close when clicking outside
-						document.addEventListener('click', function (e) {
-							if (!menu.hidden && !btn.contains(e.target) && !menu.contains(e.target)) {
-								btn.setAttribute('aria-expanded', 'false');
-								menu.hidden = true;
-							}
-						});
-					})();
-				</script>
-
-				<script>
-					// Simple carousel for .gallery.carousel
-					(function () {
-						const slider = document.querySelector('.gallery.carousel');
-						if (!slider) return;
-						const track = slider.querySelector('.carouselTrack');
-						const slides = Array.from(track.querySelectorAll('.carouselSlide'));
-						// arrows were moved outside .gallery; look for them on the slider's parent container
-						const container = slider.parentElement || document;
-						const prevBtn = container.querySelector('.carouselArrow.prev') || slider.querySelector('.carouselArrow.prev');
-						const nextBtn = container.querySelector('.carouselArrow.next') || slider.querySelector('.carouselArrow.next');
-						const dotsContainer = slider.querySelector('.carouselDots');
-						let current = 0;
-
-						// build dots
-						slides.forEach((s, i) => {
-							const btn = document.createElement('button');
-							btn.setAttribute('aria-label', `Slide ${i + 1}`);
-							btn.dataset.index = i;
-							if (i === 0) btn.classList.add('active');
-							dotsContainer.appendChild(btn);
-							btn.addEventListener('click', () => {
-								goTo(i);
-							});
-						});
-
-						const dots = Array.from(dotsContainer.children);
-
-						function update() {
-							track.style.transform = `translateX(-${current * 100}%)`;
-							dots.forEach((d, i) => d.classList.toggle('active', i === current));
-						}
-
-						function goTo(i) {
-							current = (i + slides.length) % slides.length;
-							update();
-						}
-
-						if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));
-						if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1));
-
-						// keyboard support
-						slider.addEventListener('keydown', (e) => {
-							if (e.key === 'ArrowLeft') goTo(current - 1);
-							if (e.key === 'ArrowRight') goTo(current + 1);
-						});
-
-						// make focusable
-						slider.tabIndex = 0;
-					})();
-				</script>
 
 				</body>
 </html>
