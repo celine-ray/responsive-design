@@ -408,7 +408,7 @@ header {
   align-items: center;
   gap: 0.5rem;
   background-color: var(--color-blue-25);
-  border: none;
+  border: 2px solid var(--color-background);
   border-radius: var(--corner-radius-big);
   color: var(--color-text);
   font: inherit;
@@ -513,6 +513,7 @@ header {
   margin: 0;
   padding: var(--space-6);
   border-radius: var(--corner-radius-small);
+	border: 2px solid var(--color-background);
   gap: var(--space-4);
 }
 
@@ -1215,6 +1216,7 @@ footer {
     margin: 0;
     padding: 0;
     align-items: center;
+		border: none;
   }
   .mainMenu li {
     list-style: none;
